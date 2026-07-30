@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 70" width="510" height="70">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&amp;display=swap');
+      .title-nexus {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: #FFFFFF;
+        letter-spacing: -0.5px;
+      }
+      .title-sub-kreativ {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: url(#goldCrimsonGrad);
+        letter-spacing: -0.5px;
+      }
+      .sm-text {
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+        fill: #FFC700;
+      }
+    </style>
+
+    <linearGradient id="starNavyGradDark3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC700"/>
+      <stop offset="35%" stop-color="#FF3B5C"/>
+      <stop offset="75%" stop-color="#0A1931"/>
+      <stop offset="100%" stop-color="#040D21"/>
+    </linearGradient>
+
+    <linearGradient id="goldCrimsonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFC700"/>
+      <stop offset="60%" stop-color="#FF3B5C"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(4, 3)">
+    <path d="M 32 3 Q 32 32 61 32 Q 32 32 32 61 Q 32 32 3 32 Q 32 32 32 3 Z" fill="url(#starNavyGradDark3)"/>
+    <path d="M 32 7 Q 32 32 56 32 Q 32 32 32 56 Q 32 32 8 32 Q 32 32 32 7 Z" fill="url(#starNavyGradDark3)" stroke="#FFC700" stroke-width="1.5"/>
+    <circle cx="32" cy="32" r="2.5" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(80, 44)">
+    <text x="0" y="0" class="title-nexus">Nexus'</text>
+    <text x="130" y="0" class="title-sub-kreativ">Kreativ<tspan class="sm-text">℠</tspan></text>
+  </g>
+</svg>

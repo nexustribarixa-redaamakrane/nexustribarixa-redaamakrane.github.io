@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&amp;display=swap');
+      
+      .fav-text-light {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 64px;
+        fill: #040D21;
+        letter-spacing: -2px;
+      }
+    </style>
+
+    <!-- Blue-Navy Star Gradient for Light Mode -->
+    <linearGradient id="favNavyGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052D4"/>
+      <stop offset="50%" stop-color="#001F54"/>
+      <stop offset="100%" stop-color="#040D21"/>
+    </linearGradient>
+
+    <!-- Core Star Glow -->
+    <radialGradient id="favStarGlowLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#0052D4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#040D21" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Tricolor Accent Line for Light Mode -->
+    <linearGradient id="favTricolorLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0077E6"/>
+      <stop offset="50%" stop-color="#E60039"/>
+      <stop offset="100%" stop-color="#FF9F00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- NO BACKGROUND RECT (Fully Transparent) -->
+
+  <!-- Four-Pointed Blue-Navy Twinkle Star -->
+  <g transform="translate(68, 6)">
+    <path d="M 24 2 Q 24 24 46 24 Q 24 24 24 46 Q 24 24 2 24 Q 24 24 24 2 Z" fill="url(#favNavyGradLight)"/>
+    <path d="M 24 6 Q 24 24 42 24 Q 24 24 24 42 Q 24 24 6 24 Q 24 24 24 6 Z" fill="url(#favNavyGradLight)" stroke="#040D21" stroke-width="1.5"/>
+    <path d="M 24 14 Q 24 24 34 24 Q 24 24 24 34 Q 24 24 14 24 Q 24 24 24 14 Z" fill="url(#favStarGlowLight)"/>
+    <circle cx="24" cy="24" r="2.5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- NX Letters in Noto Sans Black -->
+  <text x="10" y="92" class="fav-text-light">NX</text>
+
+  <!-- Tricolor Accent Bar Underneath -->
+  <rect x="10" y="104" width="108" height="5" rx="2.5" fill="url(#favTricolorLight)"/>
+
+  <!-- Mini Sparkle Accent Bottom Left -->
+  <path d="M 18 112 Q 18 116 22 116 Q 18 116 18 120 Q 18 116 14 116 Q 18 116 18 112 Z" fill="#0077E6" opacity="0.9"/>
+</svg>

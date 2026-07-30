@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Neographical Unicode Registry</title>
+
+  <link rel="icon" id="faviconDark" type="image/svg+xml" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" id="faviconLight" type="image/svg+xml" href="favicon-light.svg"
+    media="(prefers-color-scheme: light)">
+  <link rel="icon" id="faviconDefault" type="image/svg+xml" href="favicon-dark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Press+Start+2P&family=VT323&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-mode">
+
+  <div class="tricolor-stripe"></div>
+
+  <header class="header-banner">
+    <div class="header-banner-inner">
+      <a href="index.html" class="header-wordmark">
+        <img id="headerWordmarkImg" src="wordmark-dark.svg" alt="Nexus' Software Wiki Logo">
+      </a>
+      <nav class="header-nav">
+        <a href="font-modding.html" class="nav-btn">Font Modding</a>
+        <a href="linguistics-unicode.html" class="nav-btn">Linguistics &amp; Unicode</a>
+        <a href="rnur.html" class="nav-btn active">RNUR</a>
+        <a href="character-encodings.html" class="nav-btn">Character Encodings</a>
+        <a href="my-portfolio.html" class="nav-btn">My Portfolio</a>
+        <a href="openwindows-related.html" class="nav-btn in-dev">OpenWindows &amp; Related <span class="dev-badge">IN
+            DEV</span></a>
+        <a href="nexal-fonts.html" class="nav-btn in-dev">Nexal Fonts <span class="dev-badge">IN DEV</span></a>
+        <a href="logotrends.html" class="nav-btn in-dev">LogoTrends <span class="dev-badge">IN DEV</span></a>
+        <a href="lt-type.html" class="nav-btn in-dev">LT Type <span class="dev-badge">IN DEV</span></a>
+        <a href="nexus-software.html" class="nav-btn in-dev">Nexus' Software <span class="dev-badge">IN DEV</span></a>
+        <a href="rccr.html" class="nav-btn in-dev">RCCR <span class="dev-badge">IN DEV</span></a>
+        <a href="miscellany.html" class="nav-btn">Miscellany</a>
+        <button id="themeToggleBtn" class="nav-btn theme-toggle-btn" title="Toggle Light/Dark Mode">
+          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg></span> <span class="theme-text">Light</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="section-header-title">[+] SECTION: RNUR</div>
+
+    <article class="wiki-detail-article">
+      <div class="detail-header">
+        <div>
+          <div class="card-category">RNUR</div>
+          <h1 class="detail-title">RNUR (Reddit Neographical Unicode Registry)</h1>
+        </div>
+      </div>
+      <div class="detail-body">
+        <p>The <strong>ConScript Unicode Registry (CSUR)</strong> is a project led by John Cowan and Michael Everson to
+          coordinate the assignment of blocks out of the Unicode Private Use Area (E000–F8FF and F0000–10FFFF) to
+          constructed and artificial scripts, including those for conlangs. However, Mr. Everson is very busy saving the
+          world's minority scripts, leaving little time to update the CSUR. Because several submitted scripts remain
+          unlisted, Rebecca G. Bettencourt created the <strong>Under-ConScript Unicode Registry (Under-CSUR or
+            UCSUR)</strong> to hold these scripts' place in the registry and ensure nobody steps on each other's toes
+          until they can be added to the original registry.</p>
+
+        <p style="margin-top: 14px;">Similarly, the <strong>SPUCE (Shared Private Use Character Encoding)
+            Project</strong>—created by FontStruct user erictom333—is a collaborative effort hosted on Miraheze that
+          coordinates character allocations within Unicode's Private Use Areas across Planes 0, 15, and 16. Unlike
+          standard Unicode, SPUCE covers a much broader scope by encoding constructed scripts, user-created conlangs,
+          specialized terminal or computer semigraphics, and custom inline symbols that official registries typically
+          reject. It also maintains compatibility with legacy registries like the (U)CSUR by housing well-known
+          constructed scripts like Tolkien's Tengwar and Cirth, whose official Unicode proposals have remained stalled
+          for decades. To keep the PUA organized and prevent codepoint collisions, SPUCE operates on a structured
+          reservation roadmap where contributors secure specific blocks for fully developed scripts, while strictly
+          banning redundant encodings of real-world scripts already slated for standard Unicode roadmap inclusion.</p>
+
+        <p style="margin-top: 14px;">However, traditional PUA registries suffer from a major structural limitation: they
+          rely on a flat, single-layer Private Use Area. Because space is finite, block allocations risk overlapping and
+          clashing with upstream additions, and once the PUA planes are exhausted, no further expansion is possible.</p>
+
+        <p style="margin-top: 14px;">To solve this, the <strong>Reddit Neographical Unicode Registry (RNUR)</strong> was
+          created for the <a href="https://www.reddit.com/r/neography/" target="_blank" rel="noopener"
+            style="color: var(--tricolor-cyan);">r/neography</a> community. Managed by the RNUR Consortium, RNUR is an
+          open-source architecture designed to archive original scripts and conlangs without codepoint collisions or
+          OpenType engine limitations.</p>
+
+        <h3>Multi-Dimensional Set Architecture &amp; Virtual Layering</h3>
+        <p>Rather than relying on a single flat PUA layer, RNUR uses a <strong>Coordinate-Pair System</strong> mapping
+          characters as <code>(Set_Number, Code_Point)</code>:</p>
+
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Set Layer</th>
+                <th>Layer Name</th>
+                <th>Target Scope</th>
+                <th>Purpose &amp; Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Set 1</strong></td>
+                <td>Global Stability Layer</td>
+                <td>BMP PUA (<code>U+E000–U+F8FF</code>), Plane 15 (<code>U+F0000–U+FFFFF</code>), Plane 16
+                  (<code>U+100000–U+10FFFF</code>)</td>
+                <td>Synchronized baseline for finalized community scripts, active conlangs, and verified historical
+                  additions.</td>
+              </tr>
+              <tr>
+                <td><strong>Set 2</strong></td>
+                <td>Sandbox Layer</td>
+                <td>All PUA Planes</td>
+                <td>Isolated environment for experimental scripts, application tokens, local rendering, and eviction
+                  landing zone.</td>
+              </tr>
+              <tr>
+                <td><strong>Sets 3+</strong></td>
+                <td>Expansion Stack</td>
+                <td>Virtual Paging Layers</td>
+                <td>Virtual sandbox layers that expand dynamically via virtual paging whenever contiguous space runs
+                  out.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Upstream Conflict Handling &amp; Eviction Policies</h3>
+        <p>Because RNUR shares physical PUA space with upstream registries ((U)CSUR and SPUCE), collisions are handled
+          automatically by the RNUR pipeline based on slot classification:</p>
+
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Classification &amp; Territory</th>
+                <th>Conflict Resolution &amp; Eviction Mechanism</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tier A</strong></td>
+                <td>Hardened Slots &amp; Structural Gaps</td>
+                <td>1:1 Parallel Addressing Mirror into Set 2 (e.g. Set 1 <code>U+100580</code> &rarr; Set 2
+                  <code>U+100580</code>), <code>UPSTREAM_COLLISION</code> flag deployment, and runtime font layer
+                  overrides.</td>
+              </tr>
+              <tr>
+                <td><strong>Tier B</strong></td>
+                <td>Provisional Territory (BMP <code>EE00–EFFF</code> &amp; Plane 15 Gaps)</td>
+                <td>Dynamic database migration down to Set 2 base sandbox rows upon upstream collision, glyph metric
+                  refactoring, and Set 1 slot clearance.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top: 14px; font-style: italic;">'njoy browsing this page!</p>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--bg-border);">
+
+        <h3>Withdrawn from (U)CSUR</h3>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>E6D0−E6FF</code></td>
+                <td>PHAISTOS DISC</td>
+                <td>Withdrawn. Use <code>U+101D0–U+101DF</code>.</td>
+              </tr>
+              <tr>
+                <td><code>E700−E72F</code></td>
+                <td>SHAVIAN</td>
+                <td>Withdrawn. Use <code>U+10450–U+1047F</code>.</td>
+              </tr>
+              <tr>
+                <td><code>E830−E88F</code></td>
+                <td>DESERET</td>
+                <td>Withdrawn. Use <code>U+10400–U+1044F</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Withdrawn from SPUCE</h3>
+        <p>According to the SPUCE Project website on Miraheze, any script that has not yet been migrated from the
+          deprecated Fandom wiki is no longer part of SPUCE (neither is it part of RNUR). For more information, check
+          the Compatibility page at <a href="https://spuceproject.miraheze.org/wiki/Compatibility" target="_blank"
+            rel="noopener" style="color: var(--tricolor-cyan);">spuceproject.miraheze.org/wiki/Compatibility</a>.</p>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--bg-border);">
+
+        <h3>RNUR Allocations</h3>
+        <p>A summary <a
+            href="rnur/roadmap.html" style="color: var(--tricolor-cyan);">Roadmap to the Reddit Neographical Unicode Registry</a> is available.</p>
+
+        <h4 style="font-family: var(--font-pixel-sub); font-size: 18px; color: var(--tricolor-gold); margin-top: 20px;">
+          SET 1 (Shared PUA)</h4>
+
+        <h5 style="margin-top: 14px; font-size: 15px;">BMP PUA (U+E000–U+F8FF)</h5>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+                <th>Creator</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>EE00–EE0F</code></td>
+                <td>Franklin Phonetic Alphabet</td>
+                <td>Registered</td>
+                <td>Benjamin Franklin</td>
+                <td>Provisional lease; also at SPUCE embassy range (<code>F9000–F900F</code>)</td>
+              </tr>
+              <tr>
+                <td><code>EE10–EE5F</code></td>
+                <td>Loopiform</td>
+                <td>Registered</td>
+                <td>Filipe Dos Reis</td>
+                <td>Provisional lease; also at SPUCE embassy range (<code>F9010–F905F</code>)</td>
+              </tr>
+              <tr>
+                <td><code>EE60–EE8F</code></td>
+                <td>Open Slot / Provisional</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Provisional RNUR defensive zoning macro-allocation</td>
+              </tr>
+              <tr>
+                <td><code>EE90–EEDF</code></td>
+                <td>Sulat Hiligaynon</td>
+                <td>Registered</td>
+                <td>Julius Dalum</td>
+                <td>Also at SPUCE embassy range (<code>F9090–F90DF</code>)</td>
+              </tr>
+              <tr>
+                <td><code>EEE0–EF2F</code></td>
+                <td>Western Script</td>
+                <td>Registered</td>
+                <td>Julius Dalum</td>
+                <td>Companion script for foreign names; SPUCE embassy (<code>F90E0–F912F</code>)</td>
+              </tr>
+              <tr>
+                <td><code>EF30–EF6F</code></td>
+                <td>Zurjon</td>
+                <td>Registered</td>
+                <td>Nikita Varfalameev</td>
+                <td>Also at SPUCE embassy range (<code>F9130–F916F</code>)</td>
+              </tr>
+              <tr>
+                <td><code>EF70–EFAF</code></td>
+                <td>Foldian</td>
+                <td>Registered</td>
+                <td>Nikita Varfalameev</td>
+                <td>Also at SPUCE embassy range (<code>F9170–F91AF</code>)</td>
+              </tr>
+              <tr>
+                <td><code>EFB0–EFFF</code></td>
+                <td>Reserved</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Open BMP PUA Sector</td>
+              </tr>
+              <tr>
+                <td><code>F5C0–F7FF</code></td>
+                <td>Reserved</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Tier A BMP Gap / Defensive Zone</td>
+              </tr>
+              <tr>
+                <td><code>F820–F87F</code></td>
+                <td>Reserved</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Tier A BMP Gap / Structural Reservation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 style="margin-top: 14px; font-size: 15px;">Plane 15 (U+F0000–U+FFFFF)</h5>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+                <th>Creator</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>F1D00–F1EFF</code>, <code>F26B0–F26FF</code>, <code>F28E0–F28FF</code>,
+                  <code>F2960–F29FF</code>, <code>F3400–F4FFF</code>, <code>F50F0–F7FFF</code>,
+                  <code>F81B0–F8FFF</code>, <code>FA000–FAFFF</code>, <code>FC000–FDFFF</code>,
+                  <code>FF200–FF27F</code>, <code>FF2A0–FF2BF</code>, <code>FF700–FF9FF</code>, <code>FFE00–FFEFF</code>
+                </td>
+                <td>Provisional Gaps</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Tier B defensive zones under active upstream vacuum</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 style="margin-top: 14px; font-size: 15px;">Plane 16 (U+100000–U+10FFFF)</h5>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+                <th>Creator</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>100000–10FFEF</code></td>
+                <td>Structural Slots</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Tier A permanent structural tracking slots</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="font-family: var(--font-pixel-sub); font-size: 18px; color: var(--tricolor-gold); margin-top: 24px;">
+          SET 2 (Native Sandbox Scripts)</h4>
+
+        <h5 style="margin-top: 14px; font-size: 15px;">BMP PUA (U+E000–U+F8FF)</h5>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+                <th>Creator</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>E000–E81F</code></td>
+                <td>Constantscript</td>
+                <td>Registered</td>
+                <td>u/Constant_Ad_5890 (_4olhos) &amp; Discord Server</td>
+                <td>Issue initiated by u/Fyteria (Abytherus)</td>
+              </tr>
+              <tr>
+                <td><code>E820–F8FF</code></td>
+                <td>Open Sandbox</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Parallel BMP Private Use Area sandbox layer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 style="margin-top: 14px; font-size: 15px;">Plane 15 (U+F0000–U+FFFFF)</h5>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+                <th>Creator</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>F0000–FFFFF</code></td>
+                <td>Reserved Sandbox</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Sandbox Plane 15 allocation layer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5 style="margin-top: 14px; font-size: 15px;">Plane 16 (U+100000–U+10FFFF)</h5>
+        <div class="table-container">
+          <table class="wiki-table">
+            <thead>
+              <tr>
+                <th>Code Range</th>
+                <th>Script</th>
+                <th>Status</th>
+                <th>Creator</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>100000–10FFFF</code></td>
+                <td>Reserved Sandbox</td>
+                <td>Reserved</td>
+                <td>—</td>
+                <td>Sandbox Plane 16 allocation layer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--bg-border);">
+
+        <p style="font-size: 13px; color: var(--text-muted);">Further information about the CSUR is available from John
+          Cowan or Michael Everson. Updated 2008-04-14 (original), 2026 (reddit). <em>I WILL COMPLY WITH ANY REQUEST
+            FROM JOHN COWAN OR MICHAEL EVERSON CONCERNING THIS PAGE.</em></p>
+
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Further information about SPUCE is
+          available from erictom333 on their <a href="https://spuceproject.miraheze.org/" target="_blank" rel="noopener"
+            style="color: var(--tricolor-cyan);">Website</a>. Updated 2026 (reddit). <em>I WILL COMPLY WITH ANY REQUEST
+            FROM ERICTOM333 CONCERNING THIS PAGE.</em></p>
+
+        <h3>Repository &amp; Master Registry</h3>
+        <div class="code-block">https://github.com/rnur-consortium/rnur</div>
+
+        <div style="margin-top: 20px;">
+          <a href="https://github.com/rnur-consortium/rnur" target="_blank" rel="noopener" class="action-btn"
+            style="background-color: var(--tricolor-cyan); color: #040D21;">Visit GitHub Repository ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="homepage-footer" style="margin-top: 40px;">
+      <div class="footer-nav">
+        <a href="index.html" class="footer-btn">Home</a>
+        <a href="aboutnsw.html" class="footer-btn">About</a>
+        <a href="sitemap.html" class="footer-btn">Sitemap</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 <strong>Nexus Tribarixa</strong> (Reda Amakrane / <a
+          href="https://github.com/nexustribarixa-redaamakrane" target="_blank"
+          rel="noopener">nexustribarixa-redaamakrane</a>).
+        This website is open-source.
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

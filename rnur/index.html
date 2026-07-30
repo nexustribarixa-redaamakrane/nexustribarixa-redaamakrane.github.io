@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rnur/ — Nexus' Software Wiki</title>
+
+  <link rel="icon" id="faviconDark" type="image/svg+xml" href="../favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" id="faviconLight" type="image/svg+xml" href="../favicon-light.svg"
+    media="(prefers-color-scheme: light)">
+  <link rel="icon" id="faviconDefault" type="image/svg+xml" href="../favicon-dark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Press+Start+2P&family=VT323&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .dir-header-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .dir-listing {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dir-listing li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 4px;
+      border-bottom: 1px solid var(--bg-border);
+      transition: background-color 0.15s linear;
+    }
+    .dir-listing li:hover {
+      background-color: rgba(0, 229, 255, 0.05);
+    }
+    .dir-listing li:last-child {
+      border-bottom: none;
+    }
+    .dir-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+    }
+    .dir-icon svg {
+      width: 40px;
+      height: 40px;
+    }
+    .dir-entry-name {
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      flex: 1;
+    }
+    .dir-entry-name:hover {
+      color: var(--tricolor-cyan);
+    }
+    body.light-mode .dir-entry-name:hover {
+      color: #0052D4;
+    }
+    .dir-entry-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-pixel-sub);
+    }
+    .dir-entry-name.parent-dir {
+      color: var(--tricolor-gold);
+    }
+    body.light-mode .dir-entry-name.parent-dir {
+      color: #D97706;
+    }
+    .dir-entry-name.parent-dir:hover {
+      color: var(--tricolor-cyan);
+    }
+    body.light-mode .dir-entry-name.parent-dir:hover {
+      color: #0052D4;
+    }
+  </style>
+</head>
+
+<body class="dark-mode">
+
+  <div class="tricolor-stripe"></div>
+
+  <header class="header-banner">
+    <div class="header-banner-inner">
+      <a href="../index.html" class="header-wordmark">
+        <img id="headerWordmarkImg" src="../wordmark-dark.svg" alt="Nexus' Software Wiki Logo">
+      </a>
+      <nav class="header-nav">
+        <a href="../font-modding.html" class="nav-btn">Font Modding</a>
+        <a href="../linguistics-unicode.html" class="nav-btn">Linguistics &amp; Unicode</a>
+        <a href="../rnur.html" class="nav-btn active">RNUR</a>
+        <a href="../character-encodings.html" class="nav-btn">Character Encodings</a>
+        <a href="../my-portfolio.html" class="nav-btn">My Portfolio</a>
+        <a href="../openwindows-related.html" class="nav-btn in-dev">OpenWindows &amp; Related <span class="dev-badge">IN
+            DEV</span></a>
+        <a href="../nexal-fonts.html" class="nav-btn in-dev">Nexal Fonts <span class="dev-badge">IN DEV</span></a>
+        <a href="../logotrends.html" class="nav-btn in-dev">LogoTrends <span class="dev-badge">IN DEV</span></a>
+        <a href="../lt-type.html" class="nav-btn in-dev">LT Type <span class="dev-badge">IN DEV</span></a>
+        <a href="../nexus-software.html" class="nav-btn in-dev">Nexus' Software <span class="dev-badge">IN DEV</span></a>
+        <a href="../rccr.html" class="nav-btn in-dev">RCCR <span class="dev-badge">IN DEV</span></a>
+        <a href="../miscellany.html" class="nav-btn">Miscellany</a>
+        <button id="themeToggleBtn" class="nav-btn theme-toggle-btn" title="Toggle Light/Dark Mode">
+          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg></span> <span class="theme-text">Light</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="section-header-title">[+] DIRECTORY: rnur/</div>
+
+    <article class="wiki-detail-article">
+      <div class="detail-header">
+        <div>
+          <div class="card-category">File Browser</div>
+          <h1 class="detail-title">Index of /rnur/</h1>
+        </div>
+      </div>
+      <div class="detail-body">
+        <p class="dir-header-desc">This folder contains pages related to the Reddit Neographical Unicode Registry (RNUR).</p>
+
+        <ul class="dir-listing">
+
+          <li>
+            <span class="dir-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--tricolor-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 19V5a2 2 0 0 1 2-2h5l4 4h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/>
+                <polyline points="15 3 15 7 19 7"/>
+                <line x1="9" y1="12" x2="15" y2="12"/>
+                <line x1="12" y1="9" x2="12" y2="15"/>
+              </svg>
+            </span>
+            <a href="../index.html" class="dir-entry-name parent-dir">[Parent Directory]</a>
+            <span class="dir-entry-meta"></span>
+          </li>
+
+          <li>
+            <span class="dir-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--tricolor-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <polyline points="9 13 7 15 9 17"/>
+                <polyline points="15 13 17 15 15 17"/>
+              </svg>
+            </span>
+            <a href="roadmap.html" class="dir-entry-name">roadmap.html</a>
+            <span class="dir-entry-meta">RNUR Roadmap</span>
+          </li>
+
+        </ul>
+
+      </div>
+    </article>
+
+    <footer class="homepage-footer" style="margin-top: 40px;">
+      <div class="footer-nav">
+        <a href="../index.html" class="footer-btn">Home</a>
+        <a href="../aboutnsw.html" class="footer-btn">About</a>
+        <a href="../sitemap.html" class="footer-btn">Sitemap</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 <strong>Nexus Tribarixa</strong> (Reda Amakrane / <a
+          href="https://github.com/nexustribarixa-redaamakrane" target="_blank"
+          rel="noopener">nexustribarixa-redaamakrane</a>).
+        This website is open-source.
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../app.js"></script>
+</body>
+
+</html>

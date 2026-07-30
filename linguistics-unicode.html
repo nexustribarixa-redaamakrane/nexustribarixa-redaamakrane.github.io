@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linguistics &amp; Unicode - Nexus' Software Wiki</title>
+  
+  <link rel="icon" id="faviconDark" type="image/svg+xml" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" id="faviconLight" type="image/svg+xml" href="favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" id="faviconDefault" type="image/svg+xml" href="favicon-dark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+
+  <div class="tricolor-stripe"></div>
+
+  <header class="header-banner">
+    <div class="header-banner-inner">
+      <a href="index.html" class="header-wordmark">
+        <img id="headerWordmarkImg" src="wordmark-dark.svg" alt="Nexus' Software Wiki Logo">
+      </a>
+      <nav class="header-nav">
+        <a href="font-modding.html" class="nav-btn">Font Modding</a>
+        <a href="linguistics-unicode.html" class="nav-btn active">Linguistics &amp; Unicode</a>
+        <a href="rnur.html" class="nav-btn">RNUR</a>
+        <a href="character-encodings.html" class="nav-btn">Character Encodings</a>
+        <a href="my-portfolio.html" class="nav-btn">My Portfolio</a>
+        <a href="openwindows-related.html" class="nav-btn in-dev">OpenWindows &amp; Related <span class="dev-badge">IN DEV</span></a>
+        <a href="nexal-fonts.html" class="nav-btn in-dev">Nexal Fonts <span class="dev-badge">IN DEV</span></a>
+        <a href="logotrends.html" class="nav-btn in-dev">LogoTrends <span class="dev-badge">IN DEV</span></a>
+        <a href="lt-type.html" class="nav-btn in-dev">LT Type <span class="dev-badge">IN DEV</span></a>
+        <a href="nexus-software.html" class="nav-btn in-dev">Nexus' Software <span class="dev-badge">IN DEV</span></a>
+        <a href="rccr.html" class="nav-btn in-dev">RCCR <span class="dev-badge">IN DEV</span></a>
+        <a href="miscellany.html" class="nav-btn">Miscellany</a>
+        <button id="themeToggleBtn" class="nav-btn theme-toggle-btn" title="Toggle Light/Dark Mode">
+          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span> <span class="theme-text">Light</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="section-header-title">[+] SECTION: LINGUISTICS &amp; UNICODE</div>
+
+    <article class="wiki-detail-article">
+      <div class="detail-header">
+        <div>
+          <div class="card-category">Linguistics &amp; Unicode</div>
+          <h1 class="detail-title">SuperUnicode (SUCS / ExtSUCS)</h1>
+        </div>
+      </div>
+      <div class="detail-body">
+        <p><strong>SuperUnicode (SUCS / ExtSUCS)</strong> is a <strong>fully custom character encoding</strong> designed from the ground up for the OpenWindows Operating System — it is <em>not</em> derived from or related to the Unicode standard. Similarly, <strong>SUTF</strong> is a <strong>custom text formatting and serialization transport</strong> built specifically for OpenWindows — it is <em>not</em> derived from or related to UTF. Implemented in freestanding C99 (<code>-std=c99 -nostdlib -ffreestanding</code>), the library distinguishes strictly between numerical character encodings and physical serialization transports.</p>
+
+        <h3>Custom Encodings &amp; Custom Transports</h3>
+        <ul>
+          <li><strong>Base SUCS (31-bit):</strong> Address space from <code>0x00000000</code> to <code>0x7FFFFFFF</code> with kernel security trap ranges (<code>0x7FFFFFF0</code>–<code>0x7FFFFFFE</code>).</li>
+          <li><strong>ExtSUCS (64-bit):</strong> Unbounded address space implemented via 64-bit container types with out-of-band error handling.</li>
+          <li><strong>SUTF Custom Transports (not UTF):</strong> Includes SUTF-8 (1 to 6 byte streams), SUTF-16, SUTF-4 (4-bit hex nibble debugging console), SUTF-2 (2-bit IPC symbol frames), SUTF-32/64 (fixed vector slots for SIMD/AI), vSUTF (9-byte streaming), and e-SUTF (hypervisor page-mapped virtual IPC). All are proprietary OpenWindows formats.</li>
+          <li><strong>Kernel Mode Controller (<code>sucs_mode.h</code>):</strong> Manages reboot-committed mode switching between Base and Extended operating modes.</li>
+        </ul>
+
+        <h3>Repository &amp; Static Libraries</h3>
+        <div class="code-block">https://github.com/nexustribarixa-redaamakrane/superunicode</div>
+        <p style="margin-top: 12px; font-size: 13px; color: var(--tricolor-gold);"><em>Note: SuperUnicode and SUTF are entirely custom systems designed from scratch for OpenWindows. They share no specification, codepoint space, or compatibility with Unicode or UTF.</em></p>
+
+        <div style="margin-top: 20px;">
+          <a href="https://github.com/nexustribarixa-redaamakrane/superunicode" target="_blank" rel="noopener" class="action-btn" style="background-color: var(--tricolor-cyan); color: #040D21;">Visit GitHub Repository ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="homepage-footer" style="margin-top: 40px;">
+      <div class="footer-nav">
+        <a href="index.html" class="footer-btn">Home</a>
+        <a href="aboutnsw.html" class="footer-btn">About</a>
+        <a href="sitemap.html" class="footer-btn">Sitemap</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 <strong>Nexus Tribarixa</strong> (Reda Amakrane / <a href="https://github.com/nexustribarixa-redaamakrane" target="_blank" rel="noopener">nexustribarixa-redaamakrane</a>). 
+        This website is open-source.
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

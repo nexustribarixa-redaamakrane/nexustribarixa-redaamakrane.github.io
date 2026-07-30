@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 80" width="600" height="80">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&amp;display=swap');
+      
+      .title-nexus-light {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 36px;
+        fill: #040D21;
+        letter-spacing: -0.5px;
+      }
+      
+      .title-sub-light {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: url(#blueTextGradLight);
+        letter-spacing: -0.5px;
+      }
+    </style>
+
+    <!-- Blue-Navy Gradient for Light Mode Star -->
+    <linearGradient id="starNavyGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052D4"/>
+      <stop offset="50%" stop-color="#001F54"/>
+      <stop offset="100%" stop-color="#040D21"/>
+    </linearGradient>
+
+    <!-- Core Star Glow for Light Mode -->
+    <radialGradient id="starCoreGlowLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#0052D4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#040D21" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Navy/Blue Text Gradient for Light Mode -->
+    <linearGradient id="blueTextGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0052D4"/>
+      <stop offset="60%" stop-color="#001F54"/>
+      <stop offset="100%" stop-color="#040D21"/>
+    </linearGradient>
+
+    <!-- Tricolor Gradient Accent Bar (Light Mode palette) -->
+    <linearGradient id="tricolorGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0077E6"/>
+      <stop offset="50%" stop-color="#E60039"/>
+      <stop offset="100%" stop-color="#FF9F00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- NO BACKGROUND RECT (Fully Transparent) -->
+
+  <!-- Four-Pointed Star Icon (Twinkle Star) -->
+  <g transform="translate(8, 5)">
+    <!-- Core star shape -->
+    <path d="M 35 3 Q 35 35 67 35 Q 35 35 35 67 Q 35 35 3 35 Q 35 35 35 3 Z" fill="url(#starNavyGradLight)"/>
+    <path d="M 35 8 Q 35 35 62 35 Q 35 35 35 62 Q 35 35 8 35 Q 35 35 35 8 Z" fill="url(#starNavyGradLight)" stroke="#040D21" stroke-width="1.5"/>
+    <!-- Center sparkle core -->
+    <path d="M 35 20 Q 35 35 50 35 Q 35 35 35 50 Q 35 35 20 35 Q 35 35 35 20 Z" fill="url(#starCoreGlowLight)"/>
+    <circle cx="35" cy="35" r="3" fill="#FFFFFF"/>
+    
+    <!-- Mini secondary twinkle accents -->
+    <path d="M 60 12 Q 60 18 66 18 Q 60 18 60 24 Q 60 18 54 18 Q 60 18 60 12 Z" fill="#0052D4" opacity="0.9"/>
+    <path d="M 12 52 Q 12 56 16 56 Q 12 56 12 60 Q 12 56 8 56 Q 12 56 12 52 Z" fill="#FF9F00" opacity="0.9"/>
+  </g>
+
+  <!-- Wordmark Text Group: Noto Sans Black -->
+  <g transform="translate(90, 43)">
+    <text x="0" y="0" class="title-nexus-light">Nexus'</text>
+    <text x="135" y="0" class="title-sub-light">Software Wiki</text>
+  </g>
+
+  <!-- Tricolor Accent Bar & 8-Bit Pixel Edge -->
+  <g transform="translate(90, 54)">
+    <rect x="0" y="0" width="480" height="4" rx="2" fill="url(#tricolorGradLight)"/>
+    <rect x="0" y="0" width="8" height="4" fill="#0077E6"/>
+    <rect x="235" y="0" width="8" height="4" fill="#E60039"/>
+    <rect x="472" y="0" width="8" height="4" fill="#FF9F00"/>
+  </g>
+</svg>

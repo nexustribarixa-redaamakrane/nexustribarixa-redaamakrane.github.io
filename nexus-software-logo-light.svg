@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 70" width="540" height="70">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&amp;display=swap');
+      .title-nexus-light {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: #040D21;
+        letter-spacing: -0.5px;
+      }
+      .title-sub-light {
+        font-family: 'Noto Sans', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 34px;
+        fill: #0052D4;
+        letter-spacing: -0.5px;
+      }
+      .sm-text-light {
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+        fill: #0052D4;
+      }
+    </style>
+
+    <linearGradient id="starNavyGradLight2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052D4"/>
+      <stop offset="50%" stop-color="#001F54"/>
+      <stop offset="100%" stop-color="#040D21"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(4, 3)">
+    <path d="M 32 3 Q 32 32 61 32 Q 32 32 32 61 Q 32 32 3 32 Q 32 32 32 3 Z" fill="url(#starNavyGradLight2)"/>
+    <path d="M 32 7 Q 32 32 56 32 Q 32 32 32 56 Q 32 32 8 32 Q 32 32 32 7 Z" fill="url(#starNavyGradLight2)" stroke="#040D21" stroke-width="1.5"/>
+    <circle cx="32" cy="32" r="2.5" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(80, 44)">
+    <text x="0" y="0" class="title-nexus-light">Nexus'</text>
+    <text x="130" y="0" class="title-sub-light">Software<tspan class="sm-text-light">℠</tspan></text>
+  </g>
+</svg>
