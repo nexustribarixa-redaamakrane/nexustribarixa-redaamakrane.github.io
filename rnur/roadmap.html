@@ -39,6 +39,13 @@
     body.light-mode .c-erictom { background-color: #ca8a04; }
     body.light-mode .c-rnur-embassy { background-color: #3b82f6; }
     body.light-mode .c-unconfirmed { background-color: #cbd5e1; color: #475569; }
+    .rdmap-tabs { display: flex; gap: 10px; margin: 0 0 20px 0; flex-wrap: wrap; }
+    .rdmap-tab { font-family: var(--font-pixel-sub); font-size: 14px; padding: 10px 22px; background-color: var(--bg-card); color: var(--text-main); border: 1px solid var(--bg-border); border-radius: 4px; cursor: pointer; transition: background-color 0.15s linear, color 0.15s linear, border-color 0.15s linear; }
+    .rdmap-tab:hover { background-color: rgba(0, 229, 255, 0.08); }
+    .rdmap-tab.active { background-color: var(--tricolor-cyan); color: #040D21; border-color: var(--tricolor-cyan); }
+    body.light-mode .rdmap-tab.active { background-color: #0052D4; color: #fff; border-color: #0052D4; }
+    .rdmap-tabpanel { display: none; }
+    .rdmap-placeholder { font-family: var(--font-pixel-sub); font-size: 15px; color: var(--text-muted); text-align: center; padding: 40px 16px; border: 1px dashed var(--bg-border); border-radius: 4px; margin-bottom: 20px; }
   </style>
 </head>
 
@@ -105,6 +112,15 @@
           <li><span class="gloss-swatch" style="background-color:#a16207"></span> erictom333 — Personal reservation</li>
           <li><span class="gloss-swatch" style="background-color:#1e293b"></span> Unconfirmed / Proposed</li>
         </ul>
+
+        <div class="rdmap-tabs">
+          <button type="button" class="rdmap-tab" data-tab="set1">SET 1</button>
+          <button type="button" class="rdmap-tab" data-tab="set2">SET 2</button>
+        </div>
+
+        <div id="rdmap-placeholder" class="rdmap-placeholder">Press a tab to show its roadmap.</div>
+
+        <div id="tab-set1" class="rdmap-tabpanel">
 
         <h2 class="rdmap-set-label">SET 1 — Global Stability Layer</h2>
         <p class="rdmap-desc">Synchronised baseline for finalised community scripts and verified historical additions.</p>
@@ -2454,6 +2470,10 @@
           </tbody>
         </table>
 
+        </div>
+
+        <div id="tab-set2" class="rdmap-tabpanel">
+
         <div class="section">
           <h2 id="set-2" class="rdmap-set-label">SET 2</h2>
           <p>First sandbox Set.</p>
@@ -4689,6 +4709,8 @@
           </tbody>
         </table>
 
+        </div>
+
         <hr style="margin: 30px 0; border: none; border-top: 1px solid var(--bg-border);">
 
         <p style="font-size: 13px; color: var(--text-muted);">Further information about the CSUR is available from John Cowan or Michael Everson. Updated 2008-04-14 (original), 2026 (reddit). <em>I WILL COMPLY WITH ANY REQUEST FROM JOHN COWAN OR MICHAEL EVERSON CONCERNING THIS PAGE.</em></p>
@@ -4712,6 +4734,18 @@
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="../app.js"></script>
+  <script>
+    document.querySelectorAll('.rdmap-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.rdmap-tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.rdmap-tabpanel').forEach(function (p) { p.style.display = 'none'; });
+        document.getElementById('rdmap-placeholder').style.display = 'none';
+        tab.classList.add('active');
+        var panel = document.getElementById('tab-' + tab.dataset.tab);
+        if (panel) { panel.style.display = 'block'; }
+      });
+    });
+  </script>
 </body>
 
 </html>
