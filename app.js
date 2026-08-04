@@ -78,4 +78,22 @@ $(document).ready(function () {
   if (darkModeMediaQuery.addEventListener) {
     darkModeMediaQuery.addEventListener('change', updateFaviconForBrowserTheme);
   }
+
+  // Automatic Markdown (.md) and Text (.txt) Link Router to Document Preview Page
+  $(document).on('click', 'a[href$=".md"], a[href$=".txt"]', function (e) {
+    const rawHref = $(this).attr('href');
+    if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://')) return;
+
+    e.preventDefault();
+
+    // Resolve target path relative to current URL directory
+    const loc = window.location;
+    const currentDir = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+    const resolvedUrl = new URL(rawHref, loc.origin + currentDir);
+    let relativePath = resolvedUrl.pathname;
+    if (relativePath.startsWith('/')) relativePath = relativePath.substring(1);
+
+    window.location.href = themeRoot() + 'md-viewer.html?file=' + encodeURIComponent(relativePath);
+  });
 });
+
