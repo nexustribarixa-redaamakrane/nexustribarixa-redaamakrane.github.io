@@ -41,7 +41,7 @@
         <a href="miscellany.html" class="nav-btn">Miscellany</a>
 
         <button id="themeToggleBtn" class="nav-btn theme-toggle-btn" title="Toggle Light/Dark Mode">
-          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span> <span class="theme-text">Light</span>
+          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><defs><radialGradient id="sunCoreG" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#FFF176"/><stop offset="100%" stop-color="#FFB300"/></radialGradient><linearGradient id="sunRayG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFD54F"/><stop offset="100%" stop-color="#FF8F00"/></linearGradient></defs><circle cx="12" cy="12" r="5.5" fill="url(#sunCoreG)" stroke="#F57F17" stroke-width=".5"/><g stroke="url(#sunRayG)" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/><line x1="4.52" y1="4.52" x2="5.94" y2="5.94"/><line x1="18.06" y1="18.06" x2="19.48" y2="19.48"/><line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/><line x1="4.52" y1="19.48" x2="5.94" y2="18.06"/><line x1="18.06" y1="5.94" x2="19.48" y2="4.52"/></g></svg></span> <span class="theme-text">Light</span>
         </button>
       </nav>
     </div>
@@ -51,17 +51,24 @@
 
     <div class="homepage-center">
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:0 auto 24px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" style="display:block;margin:0 auto 24px;">
         <defs>
-          <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00E5FF"/>
-            <stop offset="50%" stop-color="#FF3B5C"/>
-            <stop offset="100%" stop-color="#FFC700"/>
+          <linearGradient id="warnBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6659"/>
+            <stop offset="100%" stop-color="#D32F2F"/>
           </linearGradient>
+          <linearGradient id="warnTri" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFF176"/>
+            <stop offset="100%" stop-color="#FFB300"/>
+          </linearGradient>
+          <filter id="warnShadow" x="-10%" y="-10%" width="120%" height="130%">
+            <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity=".25"/>
+          </filter>
         </defs>
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="url(#dangerGrad)"/>
-        <line x1="12" y1="9" x2="12" y2="13" stroke="url(#dangerGrad)"/>
-        <line x1="12" y1="17" x2="12.01" y2="17" stroke="url(#dangerGrad)"/>
+        <rect x="1" y="1" width="22" height="22" rx="5" fill="url(#warnBg)"/>
+        <path d="M10.29 5.86L3.82 16a2 2 0 0 0 1.71 3h12.94a2 2 0 0 0 1.71-3L13.71 5.86a2 2 0 0 0-3.42 0z" fill="url(#warnTri)" stroke="#F57F17" stroke-width=".5" filter="url(#warnShadow)"/>
+        <line x1="12" y1="10" x2="12" y2="13.5" stroke="#D84315" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="12" cy="16" r=".9" fill="#D84315"/>
       </svg>
 
       <h1 style="font-family:var(--font-pixel-sub);font-size:36px;color:var(--tricolor-crimson);margin:0 0 16px;">404 Not Found</h1>
