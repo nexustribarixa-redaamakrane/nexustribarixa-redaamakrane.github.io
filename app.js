@@ -100,8 +100,8 @@ $(document).ready(function () {
     const rawHref = $(this).attr('href');
     if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://') || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('javascript:')) return;
 
-    // Check if it's a directory link (ends with a slash)
-    if (rawHref.endsWith('/')) return;
+    // Check if it's a directory / folder link (ends with a slash, points to index.html, or text ends with /)
+    if (rawHref.endsWith('/') || rawHref.endsWith('/index.html') || rawHref === 'index.html' || $(this).hasClass('parent-dir') || $(this).text().trim().endsWith('/')) return;
 
     // Check if it has a file extension
     const dotIndex = rawHref.lastIndexOf('.');
@@ -109,11 +109,9 @@ $(document).ready(function () {
 
     const ext = rawHref.substring(dotIndex + 1).toLowerCase();
 
-    // If it's a standard .html page, only intercept it if it's inside a directory listing block
+    // If it's a standard .html or .htm page, navigate normally as a web page
     if (ext === 'html' || ext === 'htm') {
-      if (!$(this).closest('.dir-listing').length) {
-        return; // Navigate standard wiki pages normally
-      }
+      return;
     }
 
     e.preventDefault();
@@ -150,7 +148,7 @@ $(document).ready(function () {
       return;
     }
 
-    if (href.endsWith('/') || text.endsWith('/')) {
+    if (href.endsWith('/') || href.endsWith('/index.html') || href === 'index.html' || text.trim().endsWith('/')) {
       $li.find('.dir-icon').html(getFolderSvg());
       return;
     }
@@ -224,8 +222,35 @@ $(document).ready(function () {
       </svg>`;
     }
 
-    // 2. HTML, XML, SVG
-    if (ext === 'html' || ext === 'htm' || ext === 'xml' || ext === 'svg') {
+    // 2a. SVG File: paper with blue <> next to it image icon inside
+    if (ext === 'svg') {
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <defs>
+          <linearGradient id="svgDocGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#ECEFF1"/>
+          </linearGradient>
+          <linearGradient id="svgFoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#CFD8DC"/>
+            <stop offset="100%" stop-color="#90A4AE"/>
+          </linearGradient>
+          <linearGradient id="svgSkyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#4FC3F7"/>
+            <stop offset="100%" stop-color="#0288D1"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#svgDocGrad)" stroke="#78909C" stroke-width=".5"/>
+        <path d="M14 2v6h6" fill="url(#svgFoldGrad)" stroke="#78909C" stroke-width=".5"/>
+        <polyline points="7.5 12.5 5.5 15 7.5 17.5" fill="none" stroke="#0288D1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="9.5 12.5 11.5 15 9.5 17.5" fill="none" stroke="#0288D1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="12.5" y="12" width="6" height="5.5" rx="0.5" fill="url(#svgSkyGrad)" stroke="#0288D1" stroke-width=".4"/>
+        <circle cx="14" cy="13.5" r="0.6" fill="#FFF176"/>
+        <polygon points="12.5 17.5 14.5 14.5 16 16 17 15 18.5 17.5" fill="#388E3C"/>
+      </svg>`;
+    }
+
+    // 2b. HTML, XML
+    if (ext === 'html' || ext === 'htm' || ext === 'xml') {
       return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <defs>
           <linearGradient id="htmlDocGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -248,43 +273,46 @@ $(document).ready(function () {
       </svg>`;
     }
 
-    // 3. JavaScript, TypeScript, JSX, TSX
+    // 3. JavaScript, TypeScript, JSX, TSX: paper with yellow JS inside (pure vector lines)
     if (ext === 'js' || ext === 'ts' || ext === 'jsx' || ext === 'tsx' || ext === 'mjs' || ext === 'cjs') {
       return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <defs>
-          <linearGradient id="jsDocG" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#FFFDE7"/>
-            <stop offset="100%" stop-color="#FFF9C4"/>
+          <linearGradient id="jsPaperG" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#ECEFF1"/>
           </linearGradient>
           <linearGradient id="jsFoldG" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FFE082"/>
-            <stop offset="100%" stop-color="#FBC02D"/>
+            <stop offset="0%" stop-color="#CFD8DC"/>
+            <stop offset="100%" stop-color="#90A4AE"/>
           </linearGradient>
         </defs>
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#jsDocG)" stroke="#F57F17" stroke-width=".5"/>
-        <path d="M14 2v6h6" fill="url(#jsFoldG)" stroke="#F57F17" stroke-width=".5"/>
-        <rect x="7" y="11" width="10" height="8" rx="1.5" fill="#FBC02D" stroke="#F57F17" stroke-width=".5"/>
-        <text x="8.5" y="17.2" font-family="'VT323', monospace" font-size="7.5" fill="#121011" font-weight="900">JS</text>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#jsPaperG)" stroke="#78909C" stroke-width=".5"/>
+        <path d="M14 2v6h6" fill="url(#jsFoldG)" stroke="#78909C" stroke-width=".5"/>
+        <rect x="6.5" y="11" width="11" height="8.5" rx="1.5" fill="#FBC02D" stroke="#F57F17" stroke-width=".5"/>
+        <path d="M 10.5 13 L 10.5 16 A 1.2 1.2 0 0 1 8.1 16" fill="none" stroke="#121011" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 15.5 13.3 C 12.8 12.5 13 14.8 14.2 15 C 15.5 15.2 15.8 17.5 13 16.7" fill="none" stroke="#121011" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>`;
     }
 
-    // 4. CSS, SCSS, SASS, LESS
+    // 4. CSS, SCSS, SASS, LESS: paper with blue # inside (pure vector lines)
     if (ext === 'css' || ext === 'scss' || ext === 'sass' || ext === 'less') {
       return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <defs>
-          <linearGradient id="cssDocG" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#E3F2FD"/>
-            <stop offset="100%" stop-color="#BBDEFB"/>
+          <linearGradient id="cssPaperG" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#ECEFF1"/>
           </linearGradient>
           <linearGradient id="cssFoldG" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#90CAF9"/>
-            <stop offset="100%" stop-color="#1976D2"/>
+            <stop offset="0%" stop-color="#CFD8DC"/>
+            <stop offset="100%" stop-color="#90A4AE"/>
           </linearGradient>
         </defs>
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#cssDocG)" stroke="#0D47A1" stroke-width=".5"/>
-        <path d="M14 2v6h6" fill="url(#cssFoldG)" stroke="#0D47A1" stroke-width=".5"/>
-        <rect x="7" y="11" width="10" height="8" rx="1.5" fill="#29B6F6" stroke="#0288D1" stroke-width=".5"/>
-        <text x="9" y="17.2" font-family="'VT323', monospace" font-size="7.5" fill="#ffffff" font-weight="900">#</text>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#cssPaperG)" stroke="#78909C" stroke-width=".5"/>
+        <path d="M14 2v6h6" fill="url(#cssFoldG)" stroke="#78909C" stroke-width=".5"/>
+        <line x1="10" y1="10.5" x2="9" y2="18.5" stroke="#0288D1" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="14" y1="10.5" x2="13" y2="18.5" stroke="#0288D1" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="7.5" y1="13" x2="15.5" y2="13" stroke="#0288D1" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="6.5" y1="16" x2="14.5" y2="16" stroke="#0288D1" stroke-width="1.6" stroke-linecap="round"/>
       </svg>`;
     }
 
@@ -323,7 +351,8 @@ $(document).ready(function () {
         </defs>
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#jsonDocG)" stroke="#006064" stroke-width=".5"/>
         <path d="M14 2v6h6" fill="url(#jsonFoldG)" stroke="#006064" stroke-width=".5"/>
-        <text x="8.5" y="16.5" font-family="'Noto Sans', sans-serif" font-size="7" fill="#00ACC1" font-weight="900">{ }</text>
+        <path d="M 9.5 11.5 C 8.3 11.5 8.3 13.5 8.3 14.5 C 8.3 15.2 7.3 15 7.3 15 C 7.3 15 8.3 14.8 8.3 15.5 C 8.3 16.5 8.3 18.5 9.5 18.5" fill="none" stroke="#00ACC1" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M 14.5 11.5 C 15.7 11.5 15.7 13.5 15.7 14.5 C 15.7 15.2 16.7 15 16.7 15 C 16.7 15 15.7 14.8 15.7 15.5 C 15.7 16.5 15.7 18.5 14.5 18.5" fill="none" stroke="#00ACC1" stroke-width="1.4" stroke-linecap="round"/>
       </svg>`;
     }
 
@@ -408,7 +437,8 @@ $(document).ready(function () {
         </defs>
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#fntDocG)" stroke="#37474F" stroke-width=".5"/>
         <path d="M14 2v6h6" fill="url(#fntFoldG)" stroke="#37474F" stroke-width=".5"/>
-        <text x="8.5" y="17.2" font-family="'Noto Sans', sans-serif" font-size="8" fill="#546E7A" font-weight="900">A</text>
+        <polyline points="8.5 18 12 11 15.5 18" fill="none" stroke="#546E7A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="9.8" y1="15.5" x2="14.2" y2="15.5" stroke="#546E7A" stroke-width="1.6" stroke-linecap="round"/>
       </svg>`;
     }
 
