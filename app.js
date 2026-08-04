@@ -90,14 +90,15 @@ $(document).ready(function () {
     const loc = window.location;
     const currentDir = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
     const resolvedUrl = new URL(rawHref, loc.origin + currentDir);
-    // Make the path relative to the site root (handles subdirectory deploys
-    // like GitHub Pages at /nexus-software-wiki/)
-    const rootPath = new URL(themeRoot()).pathname;
+
+    // Strip the site root prefix so the path is relative to the site, not the domain
+    // This is critical for GitHub Pages where the site lives at /repo-name/
+    const siteRootPath = new URL(themeRoot()).pathname;
     let relativePath = resolvedUrl.pathname;
-    if (relativePath.startsWith(rootPath)) {
-      relativePath = relativePath.substring(rootPath.length);
-    } else {
-      relativePath = relativePath.replace(/^\/+/, '');
+    if (relativePath.startsWith(siteRootPath)) {
+      relativePath = relativePath.substring(siteRootPath.length);
+    } else if (relativePath.startsWith('/')) {
+      relativePath = relativePath.substring(1);
     }
 
     window.location.href = themeRoot() + 'md-viewer.html?file=' + encodeURIComponent(relativePath);
