@@ -250,6 +250,15 @@
       // Clean leading slashes
       filePath = filePath.replace(/^\/+/, '');
 
+      // Strip site base path prefix if present (fixes GitHub Pages subdirectory deploys).
+      // e.g. if page is at /nexus-software-wiki/md-viewer.html and file param is
+      // "nexus-software-wiki/rnur/UNIDATA/README.md", strip "nexus-software-wiki/"
+      var pageDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+      if (pageDir.startsWith('/')) pageDir = pageDir.substring(1);
+      if (pageDir && filePath.startsWith(pageDir)) {
+        filePath = filePath.substring(pageDir.length);
+      }
+
       const fileName = filePath.split('/').pop();
       $('#mdViewerSectionTitle').text('[+] MARKDOWN PREVIEW: ' + fileName);
       $('#mdFileBadge').text(filePath);
