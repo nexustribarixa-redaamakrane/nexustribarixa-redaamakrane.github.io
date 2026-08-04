@@ -90,8 +90,15 @@ $(document).ready(function () {
     const loc = window.location;
     const currentDir = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
     const resolvedUrl = new URL(rawHref, loc.origin + currentDir);
+    // Make the path relative to the site root (handles subdirectory deploys
+    // like GitHub Pages at /nexus-software-wiki/)
+    const rootPath = new URL(themeRoot()).pathname;
     let relativePath = resolvedUrl.pathname;
-    if (relativePath.startsWith('/')) relativePath = relativePath.substring(1);
+    if (relativePath.startsWith(rootPath)) {
+      relativePath = relativePath.substring(rootPath.length);
+    } else {
+      relativePath = relativePath.replace(/^\/+/, '');
+    }
 
     window.location.href = themeRoot() + 'md-viewer.html?file=' + encodeURIComponent(relativePath);
   });
