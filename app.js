@@ -79,10 +79,26 @@ $(document).ready(function () {
     darkModeMediaQuery.addEventListener('change', updateFaviconForBrowserTheme);
   }
 
-  // Automatic File Link Router to File Reader Page (Markdown, Code, Text, Images, Data)
-  $(document).on('click', 'a[href$=".md"], a[href$=".txt"], a[href$=".js"], a[href$=".json"], a[href$=".py"], a[href$=".css"], a[href$=".c"], a[href$=".cpp"], a[href$=".cs"], a[href$=".sh"], a[href$=".ps1"], a[href$=".xml"], a[href$=".sql"], a[href$=".yml"], a[href$=".yaml"]', function (e) {
+  // Automatic File Link Router to File Reader Page
+  $(document).on('click', 'a', function (e) {
     const rawHref = $(this).attr('href');
-    if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://')) return;
+    if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://') || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('javascript:')) return;
+
+    // Check if it's a directory link (ends with a slash)
+    if (rawHref.endsWith('/')) return;
+
+    // Check if it has a file extension
+    const dotIndex = rawHref.lastIndexOf('.');
+    if (dotIndex === -1) return;
+
+    const ext = rawHref.substring(dotIndex + 1).toLowerCase();
+
+    // If it's a standard .html page, only intercept it if it's inside a directory listing block
+    if (ext === 'html' || ext === 'htm') {
+      if (!$(this).closest('.dir-listing').length) {
+        return; // Navigate standard wiki pages normally
+      }
+    }
 
     e.preventDefault();
 

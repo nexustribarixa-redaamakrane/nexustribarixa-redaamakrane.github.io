@@ -482,25 +482,41 @@
 
         $('#frContainer').html(infoBar + codeBlock);
 
-        // Apply syntax highlighting
-        if (lang && lang !== 'plaintext') {
-          $('#frContainer pre code').each(function() {
-            // Re-set text content so hljs can parse it, then re-add line spans
-            var codeEl = this;
-            var rawText = text;
-            try {
-              var result = hljs.highlight(rawText, { language: lang, ignoreIllegals: true });
-              var highlighted = result.value;
-              // Wrap each line
-              var hLines = highlighted.split('\n');
-              var hWrapped = [];
-              for (var j = 0; j < hLines.length; j++) {
-                hWrapped.push('<span class="line-row">' + (hLines[j] || ' ') + '</span>');
-              }
-              codeEl.innerHTML = hWrapped.join('');
-            } catch(e) { /* keep escaped fallback */ }
-          });
-        }
+        // Apply syntax highlighting (using explicit language if known, otherwise auto-detecting)
+        $('#frContainer pre code').each(function() {
+          var codeEl = this;
+          var rawText = text;
+          try {
+            var result;
+            if (lang && lang !== 'plaintext') {
+              result = hljs.highlight(rawText, { language: lang, ignoreIllegals: true });
+            } else {
+              result = hljs.highlightAuto(rawText);
+            }
+            
+            var highlighted = result.value;
+            // Update language badge if it was auto-detected
+            if (result.language && (!lang || lang === 'plaintext')) {
+              $('.fr-lang-badge').text(result.language);
+            }
+            
+            // Wrap each line in line-row for line numbering
+            var hLines = highlighted.split('\n');
+            var hWrapped = [];
+            for (var j = 0; j < hLines.length; j++) {
+              hWrapped.push('<span class="line-row">' + (hLines[j] || ' ') + '</span>');
+            }
+            codeEl.innerHTML = hWrapped.join('');
+          } catch(e) {
+            // Fallback lines on error
+            var lines = escapeHtml(rawText).split('\n');
+            var wrapped = [];
+            for (var k = 0; k < lines.length; k++) {
+              wrapped.push('<span class="line-row">' + (lines[k] || ' ') + '</span>');
+            }
+            codeEl.innerHTML = wrapped.join('');
+          }
+        });
       })
       .catch(function(err) {
         $('#frContainer').html(
