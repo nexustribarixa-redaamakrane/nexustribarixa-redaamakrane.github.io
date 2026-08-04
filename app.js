@@ -288,9 +288,8 @@ $(document).ready(function () {
         </defs>
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="url(#jsPaperG)" stroke="#78909C" stroke-width=".5"/>
         <path d="M14 2v6h6" fill="url(#jsFoldG)" stroke="#78909C" stroke-width=".5"/>
-        <rect x="6.5" y="11" width="11" height="8.5" rx="1.5" fill="#FBC02D" stroke="#F57F17" stroke-width=".5"/>
-        <path d="M 10.5 13 L 10.5 16 A 1.2 1.2 0 0 1 8.1 16" fill="none" stroke="#121011" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M 15.5 13.3 C 12.8 12.5 13 14.8 14.2 15 C 15.5 15.2 15.8 17.5 13 16.7" fill="none" stroke="#121011" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 10.5 12 L 10.5 16.5 A 1.5 1.5 0 0 1 7.5 16.5" fill="none" stroke="#F57F17" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 16.5 12.5 C 13.5 11.5 13.7 14.5 15 14.8 C 16.5 15.1 16.7 18 13.5 17" fill="none" stroke="#F57F17" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>`;
     }
 
