@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repository Files - Nexus' Software Wiki</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" id="faviconDark" type="image/svg+xml" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" id="faviconLight" type="image/svg+xml" href="favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" id="faviconDefault" type="image/svg+xml" href="favicon-dark.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Realtime file search/filter bar styling */
+    .file-filter-wrapper {
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .file-filter-input {
+      width: 100%;
+      padding: 12px 18px 12px 42px;
+      background-color: rgba(10, 25, 49, 0.7);
+      border: 1px solid var(--bg-border);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-family: var(--font-main);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    body.light-mode .file-filter-input {
+      background-color: #ffffff;
+    }
+    .file-filter-input:focus {
+      border-color: var(--tricolor-cyan);
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    }
+    body.light-mode .file-filter-input:focus {
+      border-color: #0052D4;
+      box-shadow: 0 0 10px rgba(0, 82, 212, 0.15);
+    }
+    .file-filter-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <div class="tricolor-stripe"></div>
+
+  <!-- Header Banner -->
+  <header class="header-banner">
+    <div class="header-banner-inner">
+      <a href="index.html" class="header-wordmark">
+        <img id="headerWordmarkImg" src="wordmark-dark.svg" alt="Nexus' Software Wiki Logo">
+      </a>
+      <nav class="header-nav">
+        <a href="font-modding.html" class="nav-btn">Font Modding</a>
+        <a href="linguistics-unicode.html" class="nav-btn">Linguistics &amp; Unicode</a>
+        <a href="rnur.html" class="nav-btn">RNUR</a>
+        <a href="character-encodings.html" class="nav-btn">Character Encodings</a>
+        <a href="my-portfolio.html" class="nav-btn">My Portfolio</a>
+        <a href="openwindows-related.html" class="nav-btn in-dev">OpenWindows &amp; Related <span class="dev-badge">IN DEV</span></a>
+        <a href="nexal-fonts.html" class="nav-btn in-dev">Nexal Fonts <span class="dev-badge">IN DEV</span></a>
+        <a href="logotrends.html" class="nav-btn in-dev">LogoTrends <span class="dev-badge">IN DEV</span></a>
+        <a href="lt-type.html" class="nav-btn in-dev">LT Type <span class="dev-badge">IN DEV</span></a>
+        <a href="nexus-software.html" class="nav-btn in-dev">Nexus' Software <span class="dev-badge">IN DEV</span></a>
+        <a href="rccr.html" class="nav-btn in-dev">RCCR <span class="dev-badge">IN DEV</span></a>
+        <a href="miscellany.html" class="nav-btn">Miscellany</a>
+        <button id="themeToggleBtn" class="nav-btn theme-toggle-btn" title="Toggle Light/Dark Mode">
+          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><defs><radialGradient id="sunCoreG" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#FFF176"/><stop offset="100%" stop-color="#FFB300"/></radialGradient><linearGradient id="sunRayG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFD54F"/><stop offset="100%" stop-color="#FF8F00"/></linearGradient></defs><circle cx="12" cy="12" r="5.5" fill="url(#sunCoreG)" stroke="#F57F17" stroke-width=".5"/><g stroke="url(#sunRayG)" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/><line x1="4.52" y1="4.52" x2="5.94" y2="5.94"/><line x1="18.06" y1="18.06" x2="19.48" y2="19.48"/><line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/><line x1="4.52" y1="19.48" x2="5.94" y2="18.06"/><line x1="18.06" y1="5.94" x2="19.48" y2="4.52"/></g></svg></span> <span class="theme-text">Light</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="section-header-title">[+] DIRECTORY BROWSER: /</div>
+
+    <article class="wiki-detail-article">
+      <div class="detail-header">
+        <div>
+          <div class="card-category">Repository Explorer</div>
+          <h1 class="detail-title">Index of /</h1>
+        </div>
+      </div>
+
+      <div class="detail-body">
+        <p class="dir-header-desc">Browse files and folders inside the Nexus' Software Wiki repository.</p>
+
+        <!-- Real-time Filter Input -->
+        <div class="file-filter-wrapper">
+          <svg class="file-filter-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="fileFilter" class="file-filter-input" placeholder="Search files & directories in root...">
+        </div>
+
+        <ul class="dir-listing">
+          <li>
+            <span class="dir-icon"></span>
+            <a href="rnur/" class="dir-entry-name">rnur/</a>
+            <span class="dir-entry-meta">Reddit Neographical Unicode Registry</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="README.md" class="dir-entry-name">README.md</a>
+            <span class="dir-entry-meta">Repository Documentation</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="WHAT-TO-ADD.md" class="dir-entry-name">WHAT-TO-ADD.md</a>
+            <span class="dir-entry-meta">Development Specifications</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="app.js" class="dir-entry-name">app.js</a>
+            <span class="dir-entry-meta">Application Logic</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="style.css" class="dir-entry-name">style.css</a>
+            <span class="dir-entry-meta">Wiki Stylesheet</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="index.html" class="dir-entry-name">index.html</a>
+            <span class="dir-entry-meta">Landing Page</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="font-modding.html" class="dir-entry-name">font-modding.html</a>
+            <span class="dir-entry-meta">Font Modding Guide</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="linguistics-unicode.html" class="dir-entry-name">linguistics-unicode.html</a>
+            <span class="dir-entry-meta">Linguistics Document</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="rnur.html" class="dir-entry-name">rnur.html</a>
+            <span class="dir-entry-meta">RNUR Portal</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="character-encodings.html" class="dir-entry-name">character-encodings.html</a>
+            <span class="dir-entry-meta">Character Encodings Guide</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="my-portfolio.html" class="dir-entry-name">my-portfolio.html</a>
+            <span class="dir-entry-meta">Author Portfolio</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="openwindows-related.html" class="dir-entry-name">openwindows-related.html</a>
+            <span class="dir-entry-meta">OpenWindows Project</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="nexal-fonts.html" class="dir-entry-name">nexal-fonts.html</a>
+            <span class="dir-entry-meta">Nexal Fonts Specifications</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="logotrends.html" class="dir-entry-name">logotrends.html</a>
+            <span class="dir-entry-meta">LogoTrends Specifications</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="lt-type.html" class="dir-entry-name">lt-type.html</a>
+            <span class="dir-entry-meta">LT Type Specifications</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="nexus-software.html" class="dir-entry-name">nexus-software.html</a>
+            <span class="dir-entry-meta">Nexus' Software Specifications</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="rccr.html" class="dir-entry-name">rccr.html</a>
+            <span class="dir-entry-meta">RCCR Documentation</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="miscellany.html" class="dir-entry-name">miscellany.html</a>
+            <span class="dir-entry-meta">SocioProgram Platform</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="aboutnsw.html" class="dir-entry-name">aboutnsw.html</a>
+            <span class="dir-entry-meta">About NSW Wiki</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="sitemap.html" class="dir-entry-name">sitemap.html</a>
+            <span class="dir-entry-meta">Wiki Sitemap & Sitemap Navigation</span>
+          </li>
+          <li>
+            <span class="dir-icon"></span>
+            <a href="file-reader.html" class="dir-entry-name">file-reader.html</a>
+            <span class="dir-entry-meta">Code & Document Reader Tool</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <footer class="homepage-footer" style="margin-top: 40px;">
+      <div class="footer-nav">
+        <a href="index.html" class="footer-btn">Home</a>
+        <a href="aboutnsw.html" class="footer-btn">About</a>
+        <a href="sitemap.html" class="footer-btn">Sitemap</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 <strong>Nexus Tribarixa</strong> (Reda Amakrane / <a href="https://github.com/nexustribarixa-redaamakrane" target="_blank" rel="noopener">nexustribarixa-redaamakrane</a>). 
+        This website is open-source.
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      // Highlight active Files btn
+      $('.nav-files-btn').addClass('active');
+
+      // Realtime client-side listing search filter
+      $('#fileFilter').on('input', function() {
+        const query = $(this).val().toLowerCase().trim();
+        $('.dir-listing li').each(function() {
+          const text = $(this).find('.dir-entry-name').text().toLowerCase();
+          const meta = $(this).find('.dir-entry-meta').text().toLowerCase();
+          if (text.includes(query) || meta.includes(query)) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

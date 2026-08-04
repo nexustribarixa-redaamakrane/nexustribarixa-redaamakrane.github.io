@@ -79,6 +79,22 @@ $(document).ready(function () {
     darkModeMediaQuery.addEventListener('change', updateFaviconForBrowserTheme);
   }
 
+  // Inject "Files" navigation link dynamically into header nav on all pages
+  const $nav = $('.header-nav');
+  if ($nav.length && !$nav.find('.nav-files-btn').length) {
+    const $filesLink = $('<a>')
+      .attr('href', themeRoot() + 'files.html')
+      .addClass('nav-btn nav-files-btn')
+      .text('Files');
+    
+    const $toggleBtn = $('#themeToggleBtn');
+    if ($toggleBtn.length) {
+      $filesLink.insertBefore($toggleBtn);
+    } else {
+      $nav.append($filesLink);
+    }
+  }
+
   // Automatic File Link Router to File Reader Page
   $(document).on('click', 'a', function (e) {
     const rawHref = $(this).attr('href');
