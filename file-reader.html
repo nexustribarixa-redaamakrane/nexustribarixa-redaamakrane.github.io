@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Reader - Nexus' Software Wiki</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" id="faviconDark" type="image/svg+xml" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" id="faviconLight" type="image/svg+xml" href="favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" id="faviconDefault" type="image/svg+xml" href="favicon-dark.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Highlight.js - Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" id="hljs-dark-theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css" id="hljs-light-theme" disabled>
+
+  <style>
+    /* File Reader Content Styles */
+    .fr-content {
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    /* Markdown Render Styles */
+    .fr-content h1, .fr-content h2, .fr-content h3, .fr-content h4, .fr-content h5, .fr-content h6 {
+      color: var(--tricolor-cyan);
+      margin-top: 28px;
+      margin-bottom: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    body.light-mode .fr-content h1, 
+    body.light-mode .fr-content h2, 
+    body.light-mode .fr-content h3, 
+    body.light-mode .fr-content h4 {
+      color: #0052D4;
+    }
+    .fr-content h1 {
+      font-size: 28px;
+      border-bottom: 2px solid var(--bg-border);
+      padding-bottom: 8px;
+    }
+    .fr-content h2 {
+      font-size: 22px;
+      border-bottom: 1px solid var(--bg-border);
+      padding-bottom: 6px;
+    }
+    .fr-content h3 { font-size: 18px; }
+    .fr-content h4 { font-size: 16px; }
+    .fr-content p { margin-bottom: 16px; }
+    .fr-content a {
+      color: var(--tricolor-cyan);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    body.light-mode .fr-content a { color: #0052D4; }
+    .fr-content a:hover { color: var(--tricolor-gold); }
+    .fr-content ul, .fr-content ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+    .fr-content li { margin-bottom: 6px; }
+    .fr-content blockquote {
+      margin: 18px 0;
+      padding: 12px 18px;
+      background-color: rgba(0, 229, 255, 0.05);
+      border-left: 4px solid var(--tricolor-cyan);
+      border-radius: 0 6px 6px 0;
+      color: var(--text-muted);
+    }
+    body.light-mode .fr-content blockquote {
+      background-color: rgba(0, 82, 212, 0.05);
+      border-left-color: #0052D4;
+    }
+    .fr-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .fr-content th, .fr-content td {
+      padding: 10px 14px;
+      border: 1px solid var(--bg-border);
+      text-align: left;
+    }
+    .fr-content th {
+      background-color: var(--bg-dark);
+      color: var(--tricolor-cyan);
+      font-weight: 700;
+      font-family: var(--font-pixel-sub);
+      font-size: 16px;
+    }
+    body.light-mode .fr-content th { color: #0052D4; }
+    .fr-content tr:nth-child(even) { background-color: rgba(0, 229, 255, 0.03); }
+    body.light-mode .fr-content tr:nth-child(even) { background-color: rgba(0, 82, 212, 0.03); }
+    .fr-content hr {
+      border: 0;
+      height: 1px;
+      background: var(--bg-border);
+      margin: 28px 0;
+    }
+
+    /* Inline code in markdown */
+    .fr-content > code,
+    .fr-content p code,
+    .fr-content li code,
+    .fr-content td code {
+      font-family: 'Consolas', 'Fira Code', monospace;
+      font-size: 13.5px;
+      background-color: rgba(0, 229, 255, 0.1);
+      color: var(--tricolor-cyan);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    body.light-mode .fr-content > code,
+    body.light-mode .fr-content p code,
+    body.light-mode .fr-content li code,
+    body.light-mode .fr-content td code {
+      background-color: rgba(0, 82, 212, 0.1);
+      color: #0052D4;
+    }
+
+    /* Code Block Styles (shared for code files and markdown code blocks) */
+    .fr-content pre {
+      border: 1px solid var(--bg-border);
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 0;
+      position: relative;
+    }
+    .fr-content pre code,
+    .fr-code-block pre code {
+      font-family: 'Consolas', 'Fira Code', monospace;
+      font-size: 13.5px;
+      line-height: 1.65;
+      tab-size: 4;
+      display: block;
+      padding: 18px 22px !important;
+      background: transparent !important;
+      color: inherit;
+    }
+    .fr-code-block pre {
+      border: 1px solid var(--bg-border);
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 0;
+    }
+    /* Line numbers */
+    .fr-code-block pre code {
+      counter-reset: line;
+    }
+    .fr-code-block pre code .line-row {
+      counter-increment: line;
+      display: block;
+    }
+    .fr-code-block pre code .line-row::before {
+      content: counter(line);
+      display: inline-block;
+      width: 3.5em;
+      text-align: right;
+      margin-right: 1.5em;
+      color: #636e7b;
+      user-select: none;
+      font-size: 12px;
+    }
+
+    /* File info bar */
+    .fr-file-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      background: rgba(0, 229, 255, 0.06);
+      border: 1px solid var(--bg-border);
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-family: var(--font-pixel-sub);
+      font-size: 14px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    body.light-mode .fr-file-info {
+      background: rgba(0, 82, 212, 0.05);
+    }
+    .fr-file-info .fr-lang-badge {
+      padding: 3px 10px;
+      background: rgba(0, 229, 255, 0.18);
+      color: var(--tricolor-cyan);
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    body.light-mode .fr-file-info .fr-lang-badge {
+      background: rgba(0, 82, 212, 0.15);
+      color: #0052D4;
+    }
+    .fr-file-info .fr-line-count {
+      margin-left: auto;
+    }
+
+    /* Image preview */
+    .fr-image-preview {
+      text-align: center;
+      padding: 20px;
+    }
+    .fr-image-preview img {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--bg-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Loading */
+    .fr-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 40px 0;
+      color: var(--text-muted);
+      font-family: var(--font-pixel-sub);
+      font-size: 18px;
+    }
+    .fr-file-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(0, 229, 255, 0.15);
+      color: var(--tricolor-cyan);
+      border-radius: 4px;
+      font-family: var(--font-pixel-sub);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    body.light-mode .fr-file-badge {
+      background: rgba(0, 82, 212, 0.12);
+      color: #0052D4;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <div class="tricolor-stripe"></div>
+
+  <header class="header-banner">
+    <div class="header-banner-inner">
+      <a href="index.html" class="header-wordmark">
+        <img id="headerWordmarkImg" src="wordmark-dark.svg" alt="Nexus' Software Wiki Logo">
+      </a>
+      <nav class="header-nav">
+        <a href="font-modding.html" class="nav-btn">Font Modding</a>
+        <a href="linguistics-unicode.html" class="nav-btn">Linguistics &amp; Unicode</a>
+        <a href="rnur.html" class="nav-btn">RNUR</a>
+        <a href="character-encodings.html" class="nav-btn">Character Encodings</a>
+        <a href="my-portfolio.html" class="nav-btn">My Portfolio</a>
+        <a href="openwindows-related.html" class="nav-btn in-dev">OpenWindows &amp; Related <span class="dev-badge">IN DEV</span></a>
+        <a href="nexal-fonts.html" class="nav-btn in-dev">Nexal Fonts <span class="dev-badge">IN DEV</span></a>
+        <a href="logotrends.html" class="nav-btn in-dev">LogoTrends <span class="dev-badge">IN DEV</span></a>
+        <a href="lt-type.html" class="nav-btn in-dev">LT Type <span class="dev-badge">IN DEV</span></a>
+        <a href="nexus-software.html" class="nav-btn in-dev">Nexus' Software <span class="dev-badge">IN DEV</span></a>
+        <a href="rccr.html" class="nav-btn in-dev">RCCR <span class="dev-badge">IN DEV</span></a>
+        <a href="miscellany.html" class="nav-btn">Miscellany</a>
+        <button id="themeToggleBtn" class="nav-btn theme-toggle-btn" title="Toggle Light/Dark Mode">
+          <span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><defs><radialGradient id="sunCoreG" cx="50%" cy="40%" r="50%"><stop offset="0%" stop-color="#FFF176"/><stop offset="100%" stop-color="#FFB300"/></radialGradient><linearGradient id="sunRayG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFD54F"/><stop offset="100%" stop-color="#FF8F00"/></linearGradient></defs><circle cx="12" cy="12" r="5.5" fill="url(#sunCoreG)" stroke="#F57F17" stroke-width=".5"/><g stroke="url(#sunRayG)" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/><line x1="4.52" y1="4.52" x2="5.94" y2="5.94"/><line x1="18.06" y1="18.06" x2="19.48" y2="19.48"/><line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/><line x1="4.52" y1="19.48" x2="5.94" y2="18.06"/><line x1="18.06" y1="5.94" x2="19.48" y2="4.52"/></g></svg></span> <span class="theme-text">Light</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="section-header-title" id="frSectionTitle">[+] FILE READER</div>
+
+    <article class="wiki-detail-article">
+      <div class="detail-header">
+        <div>
+          <div class="fr-file-badge" id="frFileBadge">FILE PREVIEW</div>
+          <h1 class="detail-title" id="frTitle">Loading File...</h1>
+        </div>
+      </div>
+
+      <div class="detail-body">
+        <div id="frContainer" class="fr-content">
+          <div class="fr-loading">
+            <span>Loading file content...</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <footer class="homepage-footer" style="margin-top: 40px;">
+      <div class="footer-nav">
+        <a href="index.html" class="footer-btn">Home</a>
+        <a href="aboutnsw.html" class="footer-btn">About</a>
+        <a href="sitemap.html" class="footer-btn">Sitemap</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 <strong>Nexus Tribarixa</strong> (Reda Amakrane / <a href="https://github.com/nexustribarixa-redaamakrane" target="_blank" rel="noopener">nexustribarixa-redaamakrane</a>). 
+        This website is open-source.
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="app.js"></script>
+
+  <script>
+  $(document).ready(function() {
+
+    // ── Extension → language mapping ──
+    var langMap = {
+      'js': 'javascript', 'mjs': 'javascript', 'cjs': 'javascript',
+      'ts': 'typescript', 'tsx': 'typescript',
+      'jsx': 'javascript',
+      'py': 'python', 'pyw': 'python',
+      'rb': 'ruby',
+      'java': 'java',
+      'c': 'c', 'h': 'c',
+      'cpp': 'cpp', 'cc': 'cpp', 'cxx': 'cpp', 'hpp': 'cpp',
+      'cs': 'csharp',
+      'go': 'go',
+      'rs': 'rust',
+      'swift': 'swift',
+      'kt': 'kotlin', 'kts': 'kotlin',
+      'php': 'php',
+      'sh': 'bash', 'bash': 'bash', 'zsh': 'bash',
+      'ps1': 'powershell', 'psm1': 'powershell',
+      'html': 'xml', 'htm': 'xml', 'xhtml': 'xml',
+      'xml': 'xml', 'svg': 'xml', 'xsl': 'xml',
+      'css': 'css', 'scss': 'scss', 'sass': 'scss', 'less': 'less',
+      'json': 'json', 'jsonc': 'json',
+      'yaml': 'yaml', 'yml': 'yaml',
+      'toml': 'ini',
+      'ini': 'ini', 'cfg': 'ini', 'conf': 'ini',
+      'sql': 'sql',
+      'r': 'r',
+      'lua': 'lua',
+      'perl': 'perl', 'pl': 'perl',
+      'dockerfile': 'dockerfile',
+      'makefile': 'makefile',
+      'cmake': 'cmake',
+      'asm': 'x86asm', 's': 'x86asm',
+      'md': 'markdown',
+      'txt': 'plaintext',
+      'csv': 'plaintext',
+      'log': 'plaintext',
+      'gitignore': 'plaintext',
+    };
+
+    var imageExts = ['png','jpg','jpeg','gif','bmp','webp','ico','svg'];
+
+    function getExt(name) {
+      var parts = name.split('.');
+      return parts.length > 1 ? parts.pop().toLowerCase() : '';
+    }
+
+    function getBaseName(name) {
+      return name.toLowerCase().replace(/\./g, '');
+    }
+
+    function detectLang(fileName) {
+      var ext = getExt(fileName);
+      var base = getBaseName(fileName);
+      // Handle special filenames
+      if (base === 'dockerfile') return 'dockerfile';
+      if (base === 'makefile') return 'makefile';
+      return langMap[ext] || '';
+    }
+
+    function isImage(fileName) {
+      return imageExts.indexOf(getExt(fileName)) !== -1;
+    }
+
+    function isMarkdown(fileName) {
+      return getExt(fileName) === 'md';
+    }
+
+    function escapeHtml(text) {
+      return $('<div>').text(text).html();
+    }
+
+    // ── Read file parameter ──
+    var urlParams = new URLSearchParams(window.location.search);
+    var filePath = urlParams.get('file') || 'README.md';
+    filePath = filePath.replace(/^\/+/, '');
+
+    // Strip site base path prefix (GitHub Pages fix)
+    var pageDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+    if (pageDir.startsWith('/')) pageDir = pageDir.substring(1);
+    if (pageDir && filePath.startsWith(pageDir)) {
+      filePath = filePath.substring(pageDir.length);
+    }
+
+    var fileName = filePath.split('/').pop();
+    var lang = detectLang(fileName);
+    var ext = getExt(fileName);
+
+    // ── Update page metadata ──
+    $('#frSectionTitle').text('[+] FILE READER: ' + fileName);
+    $('#frFileBadge').text(filePath);
+    $('#frTitle').text(fileName);
+    document.title = fileName + ' - File Reader';
+
+    // ── Handle images ──
+    if (isImage(fileName)) {
+      $('#frContainer').html(
+        '<div class="fr-image-preview">' +
+        '<img src="' + filePath + '" alt="' + escapeHtml(fileName) + '">' +
+        '</div>'
+      );
+      return;
+    }
+
+    // ── Fetch and render ──
+    fetch(filePath)
+      .then(function(response) {
+        if (!response.ok) throw new Error('HTTP status ' + response.status);
+        return response.text();
+      })
+      .then(function(text) {
+        var lineCount = text.split('\n').length;
+
+        // ── Markdown files: render as rich article ──
+        if (isMarkdown(fileName)) {
+          var renderedHtml = '';
+          if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+            renderedHtml = marked.parse(text);
+          } else {
+            renderedHtml = '<pre><code>' + escapeHtml(text) + '</code></pre>';
+          }
+          $('#frContainer').html(renderedHtml);
+
+          // Syntax-highlight code blocks inside rendered markdown
+          $('#frContainer pre code').each(function() {
+            hljs.highlightElement(this);
+          });
+
+          // Route internal links to file-reader
+          $('#frContainer a').each(function() {
+            var href = $(this).attr('href');
+            if (href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('#')) {
+              var currentDir = filePath.includes('/') ? filePath.substring(0, filePath.lastIndexOf('/') + 1) : '';
+              var targetFile = currentDir + href;
+              $(this).attr('href', 'file-reader.html?file=' + encodeURIComponent(targetFile));
+            }
+          });
+          return;
+        }
+
+        // ── Code / text files: render with syntax highlighting + line numbers ──
+        var langLabel = lang || ext || 'text';
+        var infoBar = '<div class="fr-file-info">' +
+          '<span class="fr-lang-badge">' + escapeHtml(langLabel) + '</span>' +
+          '<span>' + escapeHtml(fileName) + '</span>' +
+          '<span class="fr-line-count">' + lineCount + ' lines</span>' +
+          '</div>';
+
+        var escapedText = escapeHtml(text);
+
+        // Wrap each line in a span for line numbering
+        var lines = escapedText.split('\n');
+        var wrappedLines = [];
+        for (var i = 0; i < lines.length; i++) {
+          wrappedLines.push('<span class="line-row">' + (lines[i] || ' ') + '</span>');
+        }
+
+        var langClass = lang ? 'language-' + lang : 'nohighlight';
+        var codeBlock = '<div class="fr-code-block">' +
+          '<pre><code class="' + langClass + '">' + wrappedLines.join('') + '</code></pre>' +
+          '</div>';
+
+        $('#frContainer').html(infoBar + codeBlock);
+
+        // Apply syntax highlighting
+        if (lang && lang !== 'plaintext') {
+          $('#frContainer pre code').each(function() {
+            // Re-set text content so hljs can parse it, then re-add line spans
+            var codeEl = this;
+            var rawText = text;
+            try {
+              var result = hljs.highlight(rawText, { language: lang, ignoreIllegals: true });
+              var highlighted = result.value;
+              // Wrap each line
+              var hLines = highlighted.split('\n');
+              var hWrapped = [];
+              for (var j = 0; j < hLines.length; j++) {
+                hWrapped.push('<span class="line-row">' + (hLines[j] || ' ') + '</span>');
+              }
+              codeEl.innerHTML = hWrapped.join('');
+            } catch(e) { /* keep escaped fallback */ }
+          });
+        }
+      })
+      .catch(function(err) {
+        $('#frContainer').html(
+          '<div style="color:var(--tricolor-crimson);padding:20px;border:1px solid var(--bg-border);border-radius:8px;">' +
+          '<h3>Error Loading File</h3>' +
+          '<p>Could not fetch file: <code>' + escapeHtml(filePath) + '</code></p>' +
+          '<p style="font-size:13px;color:var(--text-muted);">' + escapeHtml(err.message) + '</p>' +
+          '</div>'
+        );
+      });
+
+    // ── Theme-aware hljs stylesheet toggle ──
+    var observer = new MutationObserver(function() {
+      var isLight = $('body').hasClass('light-mode');
+      $('#hljs-dark-theme').prop('disabled', isLight);
+      $('#hljs-light-theme').prop('disabled', !isLight);
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+  });
+  </script>
+</body>
+</html>

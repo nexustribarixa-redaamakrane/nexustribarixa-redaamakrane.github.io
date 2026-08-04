@@ -79,8 +79,8 @@ $(document).ready(function () {
     darkModeMediaQuery.addEventListener('change', updateFaviconForBrowserTheme);
   }
 
-  // Automatic Markdown (.md) and Text (.txt) Link Router to Document Preview Page
-  $(document).on('click', 'a[href$=".md"], a[href$=".txt"]', function (e) {
+  // Automatic File Link Router to File Reader Page (Markdown, Code, Text, Images, Data)
+  $(document).on('click', 'a[href$=".md"], a[href$=".txt"], a[href$=".js"], a[href$=".json"], a[href$=".py"], a[href$=".css"], a[href$=".c"], a[href$=".cpp"], a[href$=".cs"], a[href$=".sh"], a[href$=".ps1"], a[href$=".xml"], a[href$=".sql"], a[href$=".yml"], a[href$=".yaml"]', function (e) {
     const rawHref = $(this).attr('href');
     if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://')) return;
 
@@ -101,7 +101,7 @@ $(document).ready(function () {
       relativePath = relativePath.substring(1);
     }
 
-    window.location.href = themeRoot() + 'md-viewer.html?file=' + encodeURIComponent(relativePath);
+    window.location.href = themeRoot() + 'file-reader.html?file=' + encodeURIComponent(relativePath);
   });
 });
 
