@@ -51,24 +51,138 @@
 
     <div class="homepage-center">
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" style="display:block;margin:0 auto 24px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 200 200" style="display:block;margin:0 auto 24px;">
         <defs>
-          <linearGradient id="warnBg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#FF6659"/>
-            <stop offset="100%" stop-color="#D32F2F"/>
+          <!-- Blue-Navy Star Gradient matching favicon/wordmark -->
+          <linearGradient id="starNavyGrad404" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00E5FF"/>
+            <stop offset="35%" stop-color="#0052D4"/>
+            <stop offset="75%" stop-color="#0A1931"/>
+            <stop offset="100%" stop-color="#040D21"/>
           </linearGradient>
-          <linearGradient id="warnTri" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#FFF176"/>
-            <stop offset="100%" stop-color="#FFB300"/>
+
+          <!-- Core Star Radial Glow -->
+          <radialGradient id="starCoreGlow404" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+            <stop offset="50%" stop-color="#00E5FF" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#0052D4" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Red Text Gradient for 404 -->
+          <linearGradient id="redTextGrad404" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF5252"/>
+            <stop offset="50%" stop-color="#FF3B5C"/>
+            <stop offset="100%" stop-color="#C62828"/>
           </linearGradient>
-          <filter id="warnShadow" x="-10%" y="-10%" width="120%" height="130%">
-            <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity=".25"/>
+
+          <!-- Sign Board Background Gradient -->
+          <linearGradient id="signBgGrad404" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#F0F4F8"/>
+          </linearGradient>
+
+          <!-- Wooden Post Gradient -->
+          <linearGradient id="woodPostGrad404" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#A76D38"/>
+            <stop offset="50%" stop-color="#8D5524"/>
+            <stop offset="100%" stop-color="#5C3714"/>
+          </linearGradient>
+
+          <!-- Star Glow Filter -->
+          <filter id="starGlowFilter404" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+
+          <!-- Drop Shadow Filter for Sign -->
+          <filter id="signShadow404" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#040D21" flood-opacity="0.35"/>
           </filter>
         </defs>
-        <rect x="1" y="1" width="22" height="22" rx="5" fill="url(#warnBg)"/>
-        <path d="M10.29 5.86L3.82 16a2 2 0 0 0 1.71 3h12.94a2 2 0 0 0 1.71-3L13.71 5.86a2 2 0 0 0-3.42 0z" fill="url(#warnTri)" stroke="#F57F17" stroke-width=".5" filter="url(#warnShadow)"/>
-        <line x1="12" y1="10" x2="12" y2="13.5" stroke="#D84315" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="12" cy="16" r=".9" fill="#D84315"/>
+
+        <!-- Star Character Container -->
+        <g>
+          <!-- Outer Glow Star -->
+          <path d="M 100 10 Q 100 75 165 75 Q 100 75 100 140 Q 100 75 35 75 Q 100 75 100 10 Z" 
+                fill="url(#starNavyGrad404)" filter="url(#starGlowFilter404)" opacity="0.85"/>
+
+          <!-- Main Core Star Body -->
+          <path d="M 100 18 Q 100 75 157 75 Q 100 75 100 132 Q 100 75 43 75 Q 100 75 100 18 Z" 
+                fill="url(#starNavyGrad404)" stroke="#00E5FF" stroke-width="2"/>
+
+          <!-- Inner Core Sparkle Glow -->
+          <path d="M 100 42 Q 100 75 133 75 Q 100 75 100 108 Q 100 75 67 75 Q 100 75 100 42 Z" 
+                fill="url(#starCoreGlow404)"/>
+
+          <!-- Center White Sparkle -->
+          <circle cx="100" cy="75" r="3.5" fill="#FFFFFF"/>
+
+          <!-- Mini Secondary Twinkle Accents (like in logo) -->
+          <path d="M 160 25 Q 160 32 167 32 Q 160 32 160 39 Q 160 32 153 32 Q 160 32 160 25 Z" fill="#00E5FF" opacity="0.9"/>
+          <path d="M 38 120 Q 38 124 42 124 Q 38 124 38 128 Q 38 124 34 124 Q 38 124 38 120 Z" fill="#FFC700" opacity="0.9"/>
+
+          <!-- Cute Eyes on the Star -->
+          <g>
+            <!-- Left Eye -->
+            <circle cx="88" cy="66" r="4.5" fill="#FFFFFF"/>
+            <circle cx="89" cy="66" r="2.5" fill="#040D21"/>
+            <circle cx="90.2" cy="64.8" r="1" fill="#FFFFFF"/>
+
+            <!-- Right Eye -->
+            <circle cx="112" cy="66" r="4.5" fill="#FFFFFF"/>
+            <circle cx="113" cy="66" r="2.5" fill="#040D21"/>
+            <circle cx="114.2" cy="64.8" r="1" fill="#FFFFFF"/>
+
+            <!-- Cheeks -->
+            <circle cx="81" cy="71" r="3" fill="#00E5FF" opacity="0.5"/>
+            <circle cx="119" cy="71" r="3" fill="#00E5FF" opacity="0.5"/>
+
+            <!-- Mouth (concerned / oops shape) -->
+            <ellipse cx="100" cy="73" rx="3" ry="3.8" fill="#040D21"/>
+            <ellipse cx="100" cy="74.5" rx="1.8" ry="1" fill="#FF3B5C" opacity="0.8"/>
+          </g>
+
+          <!-- Sign Posts / Handles -->
+          <rect x="68" y="105" width="5" height="38" rx="2" fill="url(#woodPostGrad404)"/>
+          <rect x="127" y="105" width="5" height="38" rx="2" fill="url(#woodPostGrad404)"/>
+
+          <!-- Arms extending from Star to Sign/Posts -->
+          <!-- Left Arm -->
+          <path d="M 64 82 Q 54 94 66 112" fill="none" stroke="#00E5FF" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="66" cy="112" r="4" fill="#00E5FF" stroke="#0052D4" stroke-width="1"/>
+
+          <!-- Right Arm -->
+          <path d="M 136 82 Q 146 94 134 112" fill="none" stroke="#00E5FF" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="134" cy="112" r="4" fill="#00E5FF" stroke="#0052D4" stroke-width="1"/>
+
+          <!-- Sign Board -->
+          <g filter="url(#signShadow404)">
+            <!-- Outer Border / Card -->
+            <rect x="40" y="118" width="120" height="54" rx="8" ry="8" 
+                  fill="url(#signBgGrad404)" stroke="#0A1931" stroke-width="2.5"/>
+            
+            <!-- Inner Frame Accent Line -->
+            <rect x="44" y="122" width="112" height="46" rx="5" ry="5" 
+                  fill="none" stroke="#00E5FF" stroke-width="1" opacity="0.7"/>
+
+            <!-- Screws / Rivets on Sign Corners -->
+            <circle cx="48" cy="126" r="1.5" fill="#A0AEC0"/>
+            <circle cx="152" cy="126" r="1.5" fill="#A0AEC0"/>
+            <circle cx="48" cy="164" r="1.5" fill="#A0AEC0"/>
+            <circle cx="152" cy="164" r="1.5" fill="#A0AEC0"/>
+
+            <!-- Red "404" Text -->
+            <text x="100" y="157" 
+                  font-family="'Noto Sans', 'Arial Black', sans-serif" 
+                  font-weight="900" 
+                  font-size="32" 
+                  letter-spacing="2"
+                  fill="url(#redTextGrad404)" 
+                  text-anchor="middle"
+                  stroke="#801313"
+                  stroke-width="0.5">404</text>
+          </g>
+        </g>
       </svg>
 
       <h1 style="font-family:var(--font-pixel-sub);font-size:36px;color:var(--tricolor-crimson);margin:0 0 16px;">404 Not Found</h1>
