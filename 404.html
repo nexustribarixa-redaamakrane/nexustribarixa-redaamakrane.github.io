@@ -216,10 +216,17 @@
       is404Page: true,
       catchErrors: true,
       restricted: [
-        // Add restricted paths here. Examples:
-        // '/admin',
+        // ── Option 1: Block entire directory + all subcontent ──
         // '/admin/**',
-        // '/private/**'
+        // { path: '/secret', policy: 'block-all' },
+
+        // ── Option 2: Block directory index/listing, but ALLOW subcontent ──
+        // (e.g. Forbids browsing /downloads or /downloads/index.html, but allows /downloads/file.pdf)
+        // { path: '/downloads', policy: 'block-dir-allow-subcontent' },
+
+        // ── Option 3: Allow directory index, but BLOCK subcontent ──
+        // (e.g. Allows /assets/index.html, but blocks subfiles /assets/private-doc.pdf)
+        // { path: '/assets', policy: 'allow-dir-block-subcontent' }
       ],
       pages: {
         403: '/403.html',

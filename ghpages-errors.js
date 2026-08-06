@@ -83,15 +83,48 @@
     return new RegExp('^' + regexStr + '$').test(path);
   }
 
+  function checkRule(rule, path, accessCheckFn) {
+    var matched = false;
+
+    if (typeof rule === 'string') {
+      matched = matchPattern(rule, path);
+    } else if (typeof rule === 'object' && rule !== null && rule.path) {
+      var baseDir = normalizePath(rule.path);
+      var normPath = normalizePath(path);
+      var policy = rule.policy || 'block-all';
+
+      var isDirectoryIndex = (
+        normPath === baseDir ||
+        normPath === baseDir + '/index.html' ||
+        normPath === baseDir + '/index.htm'
+      );
+
+      var isSubcontent = normPath.startsWith(baseDir + '/') && !isDirectoryIndex;
+
+      if (policy === 'block-all') {
+        matched = normPath === baseDir || normPath.startsWith(baseDir + '/');
+      } else if (policy === 'block-dir-allow-subcontent' || policy === 'block-directory-only') {
+        matched = isDirectoryIndex;
+      } else if (policy === 'allow-dir-block-subcontent' || policy === 'block-subcontent-only') {
+        matched = isSubcontent;
+      } else {
+        matched = matchPattern(rule.path, path);
+      }
+    }
+
+    if (matched) {
+      if (typeof accessCheckFn === 'function') {
+        return !accessCheckFn(path);
+      }
+      return true;
+    }
+
+    return false;
+  }
+
   function isRestricted(path, patterns, accessCheckFn) {
     for (var i = 0; i < patterns.length; i++) {
-      if (matchPattern(patterns[i], path)) {
-        // If an access check function exists, it can grant access
-        if (typeof accessCheckFn === 'function') {
-          return !accessCheckFn(path);
-        }
-        return true;
-      }
+      if (checkRule(patterns[i], path, accessCheckFn)) return true;
     }
     return false;
   }

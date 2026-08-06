@@ -67,7 +67,7 @@ var PRECACHE_URLS = [
 
 
 /* ══════════════════════════════════════════════
- *  PATH MATCHING
+ *  PATH MATCHING & DIRECTORY POLICIES
  * ══════════════════════════════════════════════ */
 
 function normalizePath(p) {
@@ -91,9 +91,41 @@ function matchPattern(pattern, path) {
   return new RegExp('^' + regexStr + '$').test(path);
 }
 
+function checkRule(rule, path) {
+  if (typeof rule === 'string') {
+    return matchPattern(rule, path);
+  }
+
+  if (typeof rule === 'object' && rule !== null && rule.path) {
+    var baseDir = normalizePath(rule.path);
+    var normPath = normalizePath(path);
+    var policy = rule.policy || 'block-all';
+
+    var isDirectoryIndex = (
+      normPath === baseDir ||
+      normPath === baseDir + '/index.html' ||
+      normPath === baseDir + '/index.htm'
+    );
+
+    var isSubcontent = normPath.startsWith(baseDir + '/') && !isDirectoryIndex;
+
+    if (policy === 'block-all') {
+      return normPath === baseDir || normPath.startsWith(baseDir + '/');
+    } else if (policy === 'block-dir-allow-subcontent' || policy === 'block-directory-only') {
+      return isDirectoryIndex;
+    } else if (policy === 'allow-dir-block-subcontent' || policy === 'block-subcontent-only') {
+      return isSubcontent;
+    } else {
+      return matchPattern(rule.path, path);
+    }
+  }
+
+  return false;
+}
+
 function isPathRestricted(path, patterns) {
   for (var i = 0; i < patterns.length; i++) {
-    if (matchPattern(patterns[i], path)) return true;
+    if (checkRule(patterns[i], path)) return true;
   }
   return false;
 }
