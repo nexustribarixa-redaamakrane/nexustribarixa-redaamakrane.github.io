@@ -210,6 +210,23 @@
 
   </main>
 
+  <script src="ghpages-errors.js"></script>
+  <script>
+    GHPagesErrors.init({
+      is404Page: true,
+      catchErrors: true,
+      restricted: [
+        // Add restricted paths here. Examples:
+        // '/admin',
+        // '/admin/**',
+        // '/private/**'
+      ],
+      pages: {
+        403: '/403.html',
+        500: '/500.html'
+      }
+    });
+  </script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="app.js?v=2"></script>
 </body>
