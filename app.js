@@ -95,6 +95,51 @@ $(document).ready(function () {
     }
   }
 
+  // Inject "Hide/Show Menu" toggle button into header nav on all pages
+  if ($nav.length && !$nav.find('.nav-collapse-btn').length) {
+    const $collapseBtn = $('<button>')
+      .attr('type', 'button')
+      .attr('id', 'navCollapseBtn')
+      .attr('title', 'Hide navigation links')
+      .addClass('nav-btn nav-collapse-btn')
+      .text('Hide Menu');
+
+    const $toggleBtn = $('#themeToggleBtn');
+    if ($toggleBtn.length) {
+      $collapseBtn.insertBefore($toggleBtn);
+    } else {
+      $nav.append($collapseBtn);
+    }
+  }
+
+  // Collapse/expand header navigation links (keeps logo + light/dark buttons)
+  const $headerBannerEl = $('.header-banner');
+  if ($headerBannerEl.length) {
+    let navCollapsed = false;
+    try {
+      navCollapsed = localStorage.getItem('nsw-nav-collapsed') === '1';
+    } catch (e) {}
+
+    function applyNavCollapsed(collapsed) {
+      $headerBannerEl.toggleClass('nav-collapsed', collapsed);
+      const $collapseBtn = $('#navCollapseBtn');
+      if ($collapseBtn.length) {
+        $collapseBtn
+          .text(collapsed ? 'Show Menu' : 'Hide Menu')
+          .attr('title', collapsed ? 'Show navigation links' : 'Hide navigation links');
+      }
+      try {
+        localStorage.setItem('nsw-nav-collapsed', collapsed ? '1' : '0');
+      } catch (e) {}
+    }
+
+    $(document).on('click', '#navCollapseBtn', function () {
+      applyNavCollapsed(!$headerBannerEl.hasClass('nav-collapsed'));
+    });
+
+    applyNavCollapsed(navCollapsed);
+  }
+
   // Automatic File Link Router to File Reader Page
   $(document).on('click', 'a', function (e) {
     const rawHref = $(this).attr('href');

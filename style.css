@@ -101,6 +101,10 @@ body {
   transform: translateY(-100%);
 }
 
+.header-banner.nav-collapsed .header-nav a {
+  display: none;
+}
+
 .header-banner-inner {
   max-width: 1400px;
   margin: 0 auto;
@@ -541,6 +545,11 @@ body.light-mode .dir-entry-name.parent-dir:hover {
     width: 100%;
     overflow-x: auto;
     padding-bottom: 6px;
+  }
+
+  .header-banner.nav-collapsed .header-nav {
+    width: auto;
+    overflow-x: visible;
   }
 
   .hero-wordmark-large {
