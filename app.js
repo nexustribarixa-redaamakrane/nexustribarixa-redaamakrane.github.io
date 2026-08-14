@@ -162,6 +162,34 @@ $(document).ready(function () {
     }
   });
 
+  // Hide header on scroll down, show on scroll up (prevents it burying content)
+  const $headerBanner = $('.header-banner');
+  if ($headerBanner.length) {
+    let lastScrollY = window.pageYOffset;
+    let headerTicking = false;
+
+    function updateHeaderVisibility() {
+      const y = window.pageYOffset;
+      const hideAbove = 80;
+
+      if (y <= hideAbove || y < lastScrollY) {
+        $headerBanner.removeClass('is-hidden');
+      } else if (y > lastScrollY) {
+        $headerBanner.addClass('is-hidden');
+      }
+
+      lastScrollY = y;
+      headerTicking = false;
+    }
+
+    $(window).on('scroll', function () {
+      if (!headerTicking) {
+        headerTicking = true;
+        window.requestAnimationFrame(updateHeaderVisibility);
+      }
+    });
+  }
+
   // Helper functions for custom 3D folder and file icons
   function getParentFolderSvg() {
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
