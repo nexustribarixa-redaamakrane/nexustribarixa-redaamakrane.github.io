@@ -65,9 +65,22 @@
         </div>
       </div>
       <div class="detail-body">
-        <div style="padding: 24px; border: 1px dashed var(--tricolor-gold); border-radius: 6px; background: rgba(255, 199, 0, 0.05); text-align: center;">
-          <h2 style="color: var(--tricolor-gold); font-family: var(--font-pixel); font-size: 16px; margin-bottom: 12px;">COMING SOON</h2>
-          <p style="color: var(--text-muted); font-size: 14px;">This section is currently under active development. Content and documentation for RCCR will be available here soon.</p>
+        <p><strong>RCCR (Reddit Conlang Code Registry)</strong> is the official registry for assigning conflict-free <strong>BCP 47</strong> subtags and metadata layers to conlangs and neographies. Where <a href="rnur.html">RNUR</a> records <em>where</em> a project's glyphs live, RCCR records <em>which</em> language or writing system produced a given piece of text.</p>
+
+        <h3>Current State</h3>
+        <ul>
+          <li><strong>Specification:</strong> <code>RCCR-TS-01</code> — Conlang Code Registry Architecture Specification, version <strong>1.1.0</strong>, status <strong>Draft</strong>.</li>
+          <li><strong>Registry data:</strong> <code>data/registry.csv</code> currently holds <strong>9 registered tags</strong> — 7 conscript tags (<code>art-x-sx-*</code>) and 2 conlang tags (<code>art-x-*</code>).</li>
+          <li><strong>Tag rules:</strong> conscripts take <code>art-x-sx-&lt;slug&gt;</code> and conlangs take <code>art-x-&lt;slug&gt;</code>. A conlang whose language already carries a BCP 47 primary subtag — such as <code>hil</code> or <code>en</code> — is registered as a conscript only, and no language tag is minted for it.</li>
+          <li><strong>RNUR cross-reference:</strong> every registry row carries the RNUR codepoint range backing the tag, for example <code>art-x-sx-franklin</code> at <code>U+EE00</code>–<code>U+EE0F</code> and the <code>art-x-sx-placeholder</code> cipher script at <code>U+F5C0</code>–<code>U+F71F</code>.</li>
+          <li><strong>Provisional status:</strong> all current entries are marked <em>Provisional Lease / Pending Upstream Ratification</em>.</li>
+        </ul>
+
+        <h3>Repository</h3>
+        <div class="code-block">https://github.com/rnur-consortium/rccr</div>
+
+        <div style="margin-top: 20px;">
+          <a href="https://github.com/rnur-consortium/rccr" target="_blank" rel="noopener" class="action-btn" style="background-color: var(--tricolor-cyan); color: #040D21;">Visit GitHub Repository ↗</a>
         </div>
       </div>
     </article>

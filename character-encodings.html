@@ -54,13 +54,16 @@
         </div>
       </div>
       <div class="detail-body">
-        <p>Technical documentation and headers covering SuperUnicode (SUCS) custom codepoint maps, character normalization pipelines, and FontForge encoding tables (<code>.enc</code>) maintained by Nexus Tribarixa. These are proprietary OpenWindows encoding formats, not Unicode PUA.</p>
+        <p>Technical documentation and machine-readable registries for <strong>SuperUnicode (SUCS / ExtSUCS)</strong> maintained by Nexus Tribarixa: the SUAS / SUTS / SUTR specification tree, the <code>Public/0.1.0</code> character database (named blocks, properties, bidi classes, collation, mappings and name lists), and the SUTF / SUST libraries. These are proprietary OpenWindows encoding formats, not Unicode PUA.</p>
 
         <h3>Key Components</h3>
         <ul>
-          <li>SUTF-8 variable byte packing specifications for SuperUnicode codepoints (custom format, not UTF-8).</li>
-          <li>Provisional and permanent gap maps for Plane 0 (BMP), Plane 15 (SPUA-A), and Plane 16 (SPUA-B).</li>
-          <li>Integration with FontForge and fontTools glyph lookup indexing.</li>
+          <li><strong>Specification tree:</strong> <strong>SUAS</strong> architecture standards (SDF, SGW, SBR, SUCF) covering core kernel invariants, <strong>SUTS</strong> technical specifications for modular drivers and extensions, and the <strong>SUTR</strong> technical report series — SUTR-0 SUCS Core, SUTR-1 SUTF, SUTR-2 SUCA collation, SUTR-3 SuperUnicode Storage, SUTR-4 ExtSUCS transport, SUTR-5 plugin lifecycle, SUTR-6 Unicode bridge, SUTR-7 SUCEM.</li>
+          <li><strong>Named block registry (<code>sucd/Blocks.txt</code>):</strong> Unicode Bridge <code>0000..0010FFFF</code>, SuperUnicode Control Plane <code>00110000..0011FFFF</code> containing the BANcode / WARNcode / COMcode / SOFTcode sub-blocks, Native space <code>00120000..7FFFFFFF</code>, kernel Traps <code>7FFFFFF0..7FFFFFFE</code> and Sentinel <code>7FFFFFFF</code>.</li>
+          <li><strong>1:1 Unicode bridge (<code>mappings/UNICODE.txt</code>):</strong> Base SUCS <code>0x00000000</code>–<code>0x0010FFFF</code> corresponds losslessly to Unicode codepoints of the same numeric value through <code>sucs_downcast()</code>; mappings for native allocations are handled per plugin.</li>
+          <li><strong>Character database and collation:</strong> <code>sucd/SUCSData.txt</code>, derived core properties, <code>Props/PropList.txt</code> and <code>Props/BidiProps.txt</code>, together with the SUCA collation algorithm and its tables.</li>
+          <li><strong>Names, sources and partitions:</strong> <code>names/NamesList.txt</code> and <code>NameAliases.txt</code>, <code>sources/Sources.txt</code> provenance records, and <code>partitions/spec.txt</code> declaring the OWFS and USFS removable-media layouts.</li>
+          <li><strong>Encoding libraries:</strong> <code>sutf/</code> transformation formats, <code>sust/</code> serialization transports, <code>superunicode_extended/</code> for ExtSUCS 64-bit and vSUTF, and the <code>suf/</code> builder, parser and conversion helpers.</li>
         </ul>
 
         <h3>Repository Link</h3>

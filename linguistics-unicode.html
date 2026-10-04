@@ -54,19 +54,20 @@
         </div>
       </div>
       <div class="detail-body">
-        <p><strong>SuperUnicode (SUCS / ExtSUCS)</strong> is a <strong>fully custom character encoding</strong> designed from the ground up for the OpenWindows Operating System — it is <em>not</em> derived from or related to the Unicode standard. Similarly, <strong>SUTF</strong> is a <strong>custom text formatting and serialization transport</strong> built specifically for OpenWindows — it is <em>not</em> derived from or related to UTF. Implemented in freestanding C99 (<code>-std=c99 -nostdlib -ffreestanding</code>), the library distinguishes strictly between numerical character encodings and physical serialization transports.</p>
+        <p><strong>SuperUnicode (SUCS / ExtSUCS)</strong> is a <strong>fully custom character encoding</strong> designed from the ground up for the OpenWindows Operating System — it is <em>not</em> derived from or related to the Unicode standard. Similarly, <strong>SUTF</strong> (transformation formats) and <strong>SUST</strong> (serialization transports) are <strong>custom text transformation and serialization layers</strong> built specifically for OpenWindows — they are <em>not</em> derived from or related to UTF. Implemented in freestanding C99 (<code>-std=c99 -nostdlib -ffreestanding</code>), the library distinguishes strictly between numerical character encodings, logical transformation formats, and physical serialization transports.</p>
 
         <h3>Custom Encodings &amp; Custom Transports</h3>
         <ul>
           <li><strong>Base SUCS (31-bit):</strong> Address space from <code>0x00000000</code> to <code>0x7FFFFFFF</code> with kernel security trap ranges (<code>0x7FFFFFF0</code>–<code>0x7FFFFFFE</code>).</li>
           <li><strong>ExtSUCS (64-bit):</strong> Unbounded address space implemented via 64-bit container types with out-of-band error handling.</li>
-          <li><strong>SUTF Custom Transports (not UTF):</strong> Includes SUTF-8 (1 to 6 byte streams), SUTF-16, SUTF-4 (4-bit hex nibble debugging console), SUTF-2 (2-bit IPC symbol frames), SUTF-32/64 (fixed vector slots for SIMD/AI), vSUTF (9-byte streaming), and e-SUTF (hypervisor page-mapped virtual IPC). All are proprietary OpenWindows formats.</li>
+          <li><strong>SUTF Transformation Formats (not UTF):</strong> Strictly <em>transformation formats</em> defining the endian-neutral mapping between SUCS codepoints and symbol sequences — they do not define physical byte ordering or framing. Includes SUTF-8 (1 to 6 byte variable stream), SUTF-16 (1 or 2 16-bit words, no surrogates — <code>0xD800</code>–<code>0xDFFF</code> are valid PUA codepoints), SUTF-4 (4-bit hex nibble debugging console), SUTF-2 (2-bit symbol frames for IPC thread channels), and vSUTF (variable multi-byte streaming for the full 64-bit ExtSUCS space).</li>
+          <li><strong>SUST Serialization Transports (not UTF):</strong> The physical serialization layer. Includes SUST-16 (canonical big-endian serialization of the SUTF-16 word stream, 2 or 4 bytes per codepoint, no BOM), SUST-32 / SUST-64 (4B / 8B fixed vector slot transports for SIMD and AI alignment), SUST-128 / 256 / 512 / N (16B / 32B / 64B / N-byte aligned vector transports for SSE/AVX), and e-SUST (hypervisor page-mapped virtual IPC transport with 4096-codepoint pages and a 6-byte IPC frame). All are proprietary OpenWindows formats.</li>
           <li><strong>Kernel Mode Controller (<code>sucs_mode.h</code>):</strong> Manages reboot-committed mode switching between Base and Extended operating modes.</li>
         </ul>
 
         <h3>Repository &amp; Static Libraries</h3>
         <div class="code-block">https://github.com/nexustribarixa-redaamakrane/superunicode</div>
-        <p style="margin-top: 12px; font-size: 13px; color: var(--tricolor-gold);"><em>Note: SuperUnicode and SUTF are entirely custom systems designed from scratch for OpenWindows. They share no specification, codepoint space, or compatibility with Unicode or UTF.</em></p>
+        <p style="margin-top: 12px; font-size: 13px; color: var(--tricolor-gold);"><em>Note: SuperUnicode, SUTF and SUST are entirely custom systems designed from scratch for OpenWindows. They share no specification, codepoint space, or compatibility with Unicode or UTF.</em></p>
 
         <div style="margin-top: 20px;">
           <a href="https://github.com/nexustribarixa-redaamakrane/superunicode" target="_blank" rel="noopener" class="action-btn" style="background-color: var(--tricolor-cyan); color: #040D21;">Visit GitHub Repository ↗</a>

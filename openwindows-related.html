@@ -50,26 +50,38 @@
       <div class="detail-header">
         <div>
           <div class="card-category">OpenWindows &amp; Related <span class="dev-badge">IN DEV</span></div>
-          <h1 class="detail-title">OpenWindows Operating System Architecture</h1>
+          <h1 class="detail-title">OpenWindows Kernel &amp; Ecosystem Architecture</h1>
         </div>
       </div>
       <div class="detail-body">
-        <p><strong>OpenWindows &amp; Related</strong> is a low-level operating system software suite built with freestanding C99 (<code>-std=c99 -nostdlib -ffreestanding</code>) and NASM assembly. It comprises the bootloader stage and physical storage abstraction libraries for the OpenWindows OS Kernel.</p>
+        <p><strong>OpenWindows &amp; Related</strong> is a low-level operating system software suite built with freestanding C99 (<code>-std=c99 -nostdlib -ffreestanding</code>) and NASM assembly. It comprises the OpenWindows kernel plus its bootloader, storage, driver/DLL and SuperUnicode companion libraries. OpenWindows is an experimental developer preview focused on VM and host-test development — it is not a production OS.</p>
 
         <h3>Core Sub-Projects</h3>
         <ul>
-          <li><strong>Modular Bootloader (MBL):</strong> <a href="https://github.com/nexustribarixa-redaamakrane/Modular-Bootloader" target="_blank" style="color: var(--tricolor-cyan);">Modular-Bootloader GitHub Repo</a> — Multi-stage x86 bootloader (Stage 1 MBR <code>mbl_core.bin</code> &amp; Stage 2 VBE 0x0118 protected mode loader <code>mbl_stage2.sys</code>) featuring a dark GUI boot menu with ARGB8888 double-buffered framebuffer and native SuperUnicode (SUCS / SUTF) console blitting.</li>
-          <li><strong>OpenWindows Storage (ow-storage):</strong> <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows-Storage" target="_blank" style="color: var(--tricolor-cyan);">OpenWindows-Storage GitHub Repo</a> — Storage and block abstraction static libraries: <code>libowfs.a</code> (Native OpenWindows File System) and <code>libusfs.a</code> (Universal Secured File System with 3-pass cryptographic purge). Features Hardware Translation Layer (HTL) supporting NVMe, AHCI, and USB SCSI endpoints, CRC32c/Fletcher-64 checksums, and power-cut state protection.</li>
+          <li><strong>OpenWindows Kernel:</strong> <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows" target="_blank" style="color: var(--tricolor-cyan);">OpenWindows GitHub Repo</a> — Experimental freestanding x86-64 kernel and OS prototype: x86-64 boot, IDT and interrupt handling, UART/VGA console, keyboard, PIT/PIC and selected ACPI power paths, static process/thread tables with single-CPU round-robin scheduling, Ring 3 to Ring 0 syscalls over the kernel-owned <code>int 0x80</code> ABI, OWFS/USFS through a VFS facade, runlevels <code>-6</code> through <code>6</code>, and a CIS verification pipeline for signed OWX images.</li>
+          <li><strong>Modular Bootloader (MBL):</strong> <a href="https://github.com/nexustribarixa-redaamakrane/Modular-Bootloader" target="_blank" style="color: var(--tricolor-cyan);">Modular-Bootloader GitHub Repo</a> — Freestanding <strong>64-bit UEFI</strong> bootloader (<code>BOOTX64.EFI</code>) that boots from a GPT disk with a FAT32 ESP and hands control to the 32-bit OpenWindows kernel at <code>0x200000</code>. Features a GRUB-style text boot menu rendered on the UEFI Graphics Output Protocol (GOP) framebuffer with an embedded 8x16 CP437 font (BGRA/RGBA) and a 10-second countdown fallback, an integrated OpenWindows File System (OWFS) driver, UEFI Block I/O sector access, and SuperUnicode (SUCS / SUTF) boot configuration transport.</li>
+          <li><strong>OpenWindows Storage (ow-storage):</strong> <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows-Storage" target="_blank" style="color: var(--tricolor-cyan);">OpenWindows-Storage GitHub Repo</a> — Storage and block abstraction static libraries: <code>libowfs.a</code> (Native OpenWindows File System) and <code>libusfs.a</code> (Universal Secured File System). SUTF-8 paths and volume labels mapped to SuperUnicode 31-bit codepoints. Features a Hardware Translation Layer (HTL) tagged for NVMe, AHCI/SATA and USB mass-storage endpoints, CRC32c/Fletcher-64 checksums, power-cut dirty-state locking with mandatory consistency scans, ChaCha20 data-at-rest encryption (256-bit key, 12-byte per-volume nonce, 64-byte blocks), CRC32c entry-table signing in USFS, an identity-based <code>ow_sec</code> access model, and 3-pass cryptographic purge / full scrub sanitization.</li>
+          <li><strong>OpenWindows-Essentials:</strong> <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows-Essentials" target="_blank" style="color: var(--tricolor-cyan);">OpenWindows-Essentials GitHub Repo</a> — Core driver, dynamic library, file-format and recovery infrastructure: <code>.owc</code> drivers, <code>.owd</code> dynamic libraries and <code>.sentinel</code> recovery directives, the Damage Control Sentinel repair engine, and the <code>ow*</code> user-mode suite including the required PID 1 orchestrator <code>owinit</code>.</li>
+          <li><strong>vip (Volume Indexing Protocol Framework):</strong> <a href="https://github.com/nexustribarixa-redaamakrane/vip" target="_blank" style="color: var(--tricolor-cyan);">vip GitHub Repo</a> — Freestanding C99 static library (<code>libvip.a</code>) providing the ecosystem's foundational indexing layer: FVIP fixed-capacity file index tables with SUTF-8 path validation, hashing and integrity verification, plus UniVIP, a 44-bit sparse hex trie (11 nibbles deep, up to 16 children per node) giving O(11) path lookup with zero dynamic allocation.</li>
+          <li><strong>BANcode Framework:</strong> <a href="https://github.com/nexustribarixa-redaamakrane/BANcode" target="_blank" style="color: var(--tricolor-cyan);">BANcode GitHub Repo</a> — Diagnostic code framework for bare-metal OS kernels defining four categories — BANcode (fatal errors), WARNcode (warnings), COMcode (communication events) and SOFTcode (soft recovery) — with generated C99 freestanding headers and implementation, a Rust <code>no_std</code> crate and a Python package, all produced from a single source registry.</li>
+          <li><strong>SuperUnicode (SUCS / ExtSUCS):</strong> <a href="character-encodings.html">Character Encodings</a> — Bare-metal C99 implementation of the SuperUnicode character encodings and the SUTF transformation formats / SUST serialization transports the rest of the ecosystem speaks.</li>
         </ul>
 
         <h3>Repository Links</h3>
         <div class="code-block">
+https://github.com/nexustribarixa-redaamakrane/OpenWindows
 https://github.com/nexustribarixa-redaamakrane/Modular-Bootloader
+https://github.com/nexustribarixa-redaamakrane/OpenWindows-Essentials
 https://github.com/nexustribarixa-redaamakrane/OpenWindows-Storage
+https://github.com/nexustribarixa-redaamakrane/superunicode
+https://github.com/nexustribarixa-redaamakrane/vip
+https://github.com/nexustribarixa-redaamakrane/BANcode
         </div>
 
-        <div style="margin-top: 20px; display: flex; gap: 12px;">
-          <a href="https://github.com/nexustribarixa-redaamakrane/Modular-Bootloader" target="_blank" rel="noopener" class="action-btn" style="background-color: var(--tricolor-cyan); color: #040D21;">Modular Bootloader Repo ↗</a>
+        <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows" target="_blank" rel="noopener" class="action-btn" style="background-color: var(--tricolor-cyan); color: #040D21;">OpenWindows Kernel Repo ↗</a>
+          <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows-Essentials" target="_blank" rel="noopener" class="action-btn">OpenWindows-Essentials Repo ↗</a>
+          <a href="https://github.com/nexustribarixa-redaamakrane/Modular-Bootloader" target="_blank" rel="noopener" class="action-btn">Modular Bootloader Repo ↗</a>
           <a href="https://github.com/nexustribarixa-redaamakrane/OpenWindows-Storage" target="_blank" rel="noopener" class="action-btn">OpenWindows Storage Repo ↗</a>
         </div>
       </div>
