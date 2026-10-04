@@ -72,9 +72,16 @@ A summary Roadmap to the Reddit Neographical Unicode Registry is available in th
 
 ### Plane 15 (U+F0000–U+FFFFF)
 
+SPUCE tentatively maps Plane 15 out into thirteen zones. Two of them (`F9000–F9FFF` and `FB000–FBFFF`) are carved out and reserved for RNUR, and `FE000–FEFFF` is reserved for erictom333. Wherever SPUCE has allocated a script, those codepoints are SPUCE's; whatever space is left empty inside a zone is still held by RNUR as a Tier B defensive zone. The full zone map is reproduced in the [RNUR Roadmap](rnur/roadmap.html).
+
 | Code Range | Script | Status | Creator | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| `F1D00–F1EFF`, `F26B0–F26FF`, `F28E0–F28FF`, `F2960–F29FF`, `F3400–F4FFF`, `F50F0–F7FFF`, `F81B0–F8FFF`, `FA000–FAFFF`, `FC000–FDFFF`, `FF200–FF27F`, `FF2A0–FF2BF`, `FF700–FF9FF`, `FFE00–FFEFF` | Provisional Gaps | Reserved | — | Tier B defensive zones under active upstream vacuum |
+| `F9000–F9FFF` | Constructed Scripts for Existing Languages | RNUR Embassy | RNUR Consortium | Zone 6 — carved out of SPUCE zoning and reserved for RNUR; SPUCE-overseen. Mirrors BMP `EE00–EF2F`. |
+| `FB000–FBFFF` | Constructed Scripts for Constructed Languages | RNUR Embassy | RNUR Consortium | Zone 8 — carved out of SPUCE zoning and reserved for RNUR; SPUCE-overseen. Mirrors BMP `EF30–EFAF` (Zurjon, Foldian). |
+| `F4E00–F4FFF` | Halfwidth and Fullwidth Forms Extended-I | SPUCE-Listed | SPUCE | Zone 2 — SPUCE codepoints. |
+| `F50F0–F514F` | Enochian, Litterae Ignotae, Theban | SPUCE-Listed | SPUCE | Zone 3 (notation, ciphers, undeciphered & pseudohistorical scripts) — SPUCE codepoints. |
+| `FF700–FF9FF` | Control Pictures Extended-II | SPUCE-Listed | SPUCE | Zone 11 — SPUCE codepoints. Soon going to be encoded in Plane 16. |
+| `F1D00–F1EFF`, `F26B0–F26FF`, `F28E0–F28FF`, `F2960–F29FF`, `F3400–F4DFF`, `F5150–F7FFF`, `F81B0–F8FFF`, `FA000–FAFFF`, `FC000–FDFFF`, `FF200–FF27F`, `FF2A0–FF2BF`, `FFE00–FFEFF` | Provisional Gaps | Reserved | — | Tier B defensive zones under active upstream vacuum — the empty space still left after SPUCE's allocations. |
 
 ---
 

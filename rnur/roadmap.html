@@ -504,6 +504,102 @@
           </table>
 
           <h3 class="rdmap-sub-label">Plane 15 (U+F0000–U+FFFFF)</h3>
+          <p class="rdmap-desc">Plane 15 is tentatively mapped out by SPUCE into the thirteen zones below. Two of
+            them (<code>F9000–F9FFF</code> and <code>FB000–FBFFF</code>) are carved out and reserved for RNUR, and
+            <code>FE000–FEFFF</code> is reserved for erictom333. Every allocation below is placed inside its zone;
+            scripts that remain UCSUR-listed keep their (U)CSUR colour instead of the zone colour.</p>
+
+          <table class="rdmap-table">
+            <thead>
+              <tr>
+                <th align="center" width="8%">Zone</th>
+                <th align="center" width="18%">Code Range</th>
+                <th align="center">Scope</th>
+                <th align="center" width="22%">Steward</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><b>1</b></td>
+                <td align="center"><code>F0000–F2AFF</code></td>
+                <td align="center">Large UCSUR scripts</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>2</b></td>
+                <td align="center"><code>F2B00–F4FFF</code></td>
+                <td align="center">Extensions of existing Unicode scripts and existing real-world scripts</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>3</b></td>
+                <td align="center"><code>F5000–F5FFF</code></td>
+                <td align="center">Notation, ciphers, undeciphered scripts, and pseudohistorical scripts</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>4</b></td>
+                <td align="center"><code>F6000–F7FFF</code></td>
+                <td align="center">Constructed scripts from existing media</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>5</b></td>
+                <td align="center"><code>F8000–F8FFF</code></td>
+                <td align="center">Constructed scripts for existing languages</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>6</b></td>
+                <td align="center"><code>F9000–F9FFF</code></td>
+                <td align="center">Constructed scripts for existing languages</td>
+                <td align="center" class="c-rnur-embassy">Reserved for RNUR</td>
+              </tr>
+              <tr>
+                <td align="center"><b>7</b></td>
+                <td align="center"><code>FA000–FAFFF</code></td>
+                <td align="center">Constructed scripts for constructed languages</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>8</b></td>
+                <td align="center"><code>FB000–FBFFF</code></td>
+                <td align="center">Constructed scripts for constructed languages</td>
+                <td align="center" class="c-rnur-embassy">Reserved for RNUR</td>
+              </tr>
+              <tr>
+                <td align="center"><b>9</b></td>
+                <td align="center"><code>FC000–FDFFF</code></td>
+                <td align="center">Constructed scripts by FontStruct users</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>10</b></td>
+                <td align="center"><code>FE000–FEFFF</code></td>
+                <td align="center">Personal reservation</td>
+                <td align="center" class="c-erictom">Reserved for erictom333</td>
+              </tr>
+              <tr>
+                <td align="center"><b>11</b></td>
+                <td align="center"><code>FF000–FFEFF</code></td>
+                <td align="center">Symbols</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>12</b></td>
+                <td align="center"><code>FFF00–FFFEF</code></td>
+                <td align="center">Fragments</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+              <tr>
+                <td align="center"><b>13</b></td>
+                <td align="center"><code>FFFF0–FFFFF</code></td>
+                <td align="center">Specials</td>
+                <td align="center" class="c-spuce">SPUCE</td>
+              </tr>
+            </tbody>
+          </table>
+
           <table class="rdmap-table">
             <thead>
               <tr>
@@ -733,19 +829,19 @@
               </tr>
               <tr>
                 <td align="center"><b>F30xx</b></td>
-                <td colspan="16" align="center" class="c-spuce">Latin Extensions-II (F3000–F30FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Latin Extended-II (F3000–F30FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F31xx</b></td>
-                <td colspan="16" align="center" class="c-spuce">Latin Extensions-II (F3100–F31FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Latin Extended-II (F3100–F31FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F32xx</b></td>
-                <td colspan="16" align="center" class="c-spuce">Latin Extensions-II (F3200–F32FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Latin Extended-II (F3200–F32FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F33xx</b></td>
-                <td colspan="16" align="center" class="c-spuce">Latin Extensions-II (F3300–F33FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Latin Extended-II (F3300–F33FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F34xx</b></td>
@@ -867,11 +963,14 @@
                 <td colspan="5" align="center" class="c-spuce">Mifo-Circassian (F5030–F507F)</td>
                 <td colspan="4" align="center" class="c-spuce">Formosan (F5080–F50BF)</td>
                 <td colspan="3" align="center" class="c-spuce">Pseudo-Kurdish (F50C0–F50EF)</td>
-                <td colspan="1" align="center">??? (F50F0–F50FF)</td>
+                <td colspan="1" align="center" class="c-spuce">Enochian (F50F0–F50FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F51xx</b></td>
-                <td colspan="16" align="center">??? (F5100–F51FF)</td>
+                <td colspan="1" align="center" class="c-spuce">Enochian (F5100–F510F)</td>
+                <td colspan="2" align="center" class="c-spuce">Litterae Ignotae (F5110–F512F)</td>
+                <td colspan="2" align="center" class="c-spuce">Theban (F5130–F514F)</td>
+                <td colspan="11" align="center">??? (F5150–F51FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F52xx</b></td>
@@ -1142,18 +1241,19 @@
               </tr>
               <tr>
                 <td align="center"><b>F92xx</b></td>
-                <td colspan="16" align="center" class="c-rnur-embassy">Constructed Scripts for Natural Languages
-                  (F9200–F92FF)</td>
+                <td colspan="12" align="center" class="c-rnur-embassy">Constructed Scripts for Natural Languages
+                  (F9200–F92BF)</td>
+                <td colspan="4" align="center" class="c-rnur-embassy">Placeholder Cipher (F92C0–F92FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F93xx</b></td>
-                <td colspan="16" align="center" class="c-rnur-embassy">Constructed Scripts for Natural Languages
-                  (F9300–F93FF)</td>
+                <td colspan="16" align="center" class="c-rnur-embassy">Placeholder Cipher (F9300–F93FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F94xx</b></td>
-                <td colspan="16" align="center" class="c-rnur-embassy">Constructed Scripts for Natural Languages
-                  (F9400–F94FF)</td>
+                <td colspan="2" align="center" class="c-rnur-embassy">Placeholder Cipher (F9400–F941F)</td>
+                <td colspan="14" align="center" class="c-rnur-embassy">Constructed Scripts for Natural Languages
+                  (F9420–F94FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F95xx</b></td>
@@ -1543,7 +1643,8 @@
               <tr>
                 <td align="center"><b>FEDxx</b></td>
                 <td colspan="5" align="center" class="c-erictom">Tatar (FED00–FED4F)</td>
-                <td colspan="3" align="center" class="c-erictom">Layout Sandbox Space (FED50–FED7F)</td>
+                <td colspan="1" align="center" class="c-erictom">Tatar (FED50–FED5F)</td>
+                <td colspan="2" align="center" class="c-erictom">Interscript (FED60–FED7F)</td>
                 <td colspan="3" align="center" class="c-erictom">Script Gerudo (FED80–FEDAF)</td>
                 <td colspan="5" align="center" class="c-erictom">Script Gerudo Presentation Forms (FEDB0–FEDFF)</td>
               </tr>
@@ -1595,15 +1696,18 @@
               </tr>
               <tr>
                 <td align="center"><b>FF7xx</b></td>
-                <td colspan="16" align="center">??? (FF700–FF7FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Control Pictures Extended-II — Soon Going to Be
+                  Encoded in Plane 16 (FF700–FF7FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>FF8xx</b></td>
-                <td colspan="16" align="center">??? (FF800–FF8FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Control Pictures Extended-II — Soon Going to Be
+                  Encoded in Plane 16 (FF800–FF8FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>FF9xx</b></td>
-                <td colspan="16" align="center">??? (FF900–FF9FF)</td>
+                <td colspan="16" align="center" class="c-spuce">Control Pictures Extended-II — Soon Going to Be
+                  Encoded in Plane 16 (FF900–FF9FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>FFAxx</b></td>
