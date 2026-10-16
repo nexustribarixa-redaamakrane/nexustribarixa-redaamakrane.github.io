@@ -66,7 +66,8 @@ A summary Roadmap to the Reddit Neographical Unicode Registry is available in th
 | `EF10–EF3F` | Global Alphabet | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
 | `EF40–EF6F` | Ditema | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
 | `EF70–EFFF` | Quốc âm tân tự | SPUCE Allocation | SPUCE | Covers the former RNUR `???` reservation `EFB0–EFFF`, dissolved into permanent space |
-| `F5C0–F7FF` | Reserved | Reserved | — | Tier A BMP Gap / Defensive Zone |
+| `F5C0–F71F` | Placeholder | Provisional Lease | — | Named RNUR Set 1 allocation (English cipher script, not a `???` reservation); mirrored in RNUR embassy space at `F92C0–F941F` |
+| `F720–F7FF` | Reserved | Reserved | — | Tier A BMP Gap / Defensive Zone |
 | `F820–F87F` | Reserved | Reserved | — | Tier A BMP Gap / Structural Reservation |
 
 The `EE00–EFFF` interval was previously held by six provisional RNUR scripts; under the **Set 1 → Set 2 migration** they were evicted and relocated to `E820–E99F` in Set 2 (see below), while the interval is now fully allocated to the nine-script SPUCE map. SPUCE supplies those allocation definitions; RNUR represents them in its own Set 1 layer, since SPUCE does not use RNUR's Set 1 / Set 2 architecture. The former `???` reservations at `EE60–EE8F` and `EFB0–EFFF` were dissolved into permanent space rather than migrated.
