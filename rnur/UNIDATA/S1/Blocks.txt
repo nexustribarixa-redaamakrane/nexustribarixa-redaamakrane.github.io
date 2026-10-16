@@ -1,5 +1,5 @@
 # Blocks-RNUR.txt
-# Date: 2026-06-17, 20:20:00
+# Date: 2026-10-16, 12:00:00
 #
 # Reddit Neographical Unicode Registry Character Database
 # Maintained by Registry Architecture / Nexus Tribarixa
@@ -106,6 +106,15 @@ F2830..F289F; ¿Shaleian?
 F2900..F295F; ¿Visible Speech Extended?
 
 # --- SPUCE Project Allocations (🟥) ---
+EE00..EE2F; Vulcan
+EE30..EE5F; Gallifreyan
+EE60..EE8F; Atlantean
+EE90..EEBF; Valyrian
+EEC0..EEEF; Dovahzul
+EEF0..EF0F; Utopian
+EF10..EF3F; Global Alphabet
+EF40..EF6F; Ditema
+EF70..EFFF; Quốc âm tân tự
 F000..F0FF; Stylistic Variant Forms
 F100..F1FF; Phonetic Extensions-I
 F200..F2FF; Latin Extended-I
@@ -120,6 +129,11 @@ F3000..F33FF; Latin Extended-II
 F4E00..F4FFF; Halfwidth and Fullwidth Forms Extended-I
 F5000..F502F; Welsh Bardic
 F5030..F507F; Mifo-Circassian
+F5080..F50BF; Formosan
+F50C0..F50EF; Pseudo-Kurdish
+F50F0..F510F; Enochian
+F5110..F512F; Litterae Ignotae
+F5130..F514F; Theban
 F8000..F805F; Gyorsrovas
 F8060..F80AF; Bostani
 F80B0..F80FF; New Mong
@@ -138,6 +152,7 @@ FF300..FF3FF; Block Elements Extended-I
 FF400..FF5BF; Box Drawing Extended-I
 FF5C0..FF5FF; Arrows Extended-I
 FF600..FF6FF; Hex Byte Pictures
+FF700..FF9FF; Control Pictures Extended-II
 FFA00..FFABF; Astronomical Symbols
 FFAC0..FFBFF; Chess Symbols Extended-I
 FFC00..FFC2F; Arrows Extended-II
@@ -157,7 +172,7 @@ FE7A0..FE7DF; Gerudo Presentation Forms
 FE7E0..FE7FF; L8
 FE800..FECFF; Layout Sandbox Space (erictom333 Reserved)
 FED00..FED5F; Tatar
-FED60..FED7F; Layout Sandbox Space (erictom333 Reserved)
+FED60..FED7F; Interscript (erictom333 Reserved)
 FED80..FEDAF; Script Gerudo
 FEDB0..FEDFF; Script Gerudo Presentation Forms
 FEE00..FEEBF; Mitrata Lipi
@@ -167,12 +182,11 @@ FEF40..FEF8F; African Transitional
 FEF90..FEFFF; Layout Sandbox Space (erictom333 Reserved)
 
 # --- RNUR Set 1 Allocations (🟧) ---
-EE00..EE0F; Benjamin Franklin's Phonetic Additions
-EE10..EE5F; Loopiform
-EE90..EEDF; Sulat Hiligaynon
-EEE0..EF2F; Western Script
-EF30..EF6F; Zurjon
-EF70..EFAF; Foldian
+# NOTE: The former Set 1 allocations in U+EE00..U+EFFF (Benjamin Franklin's
+# Phonetic Additions, Loopiform, Sulat Hiligaynon, Western Script, Zurjon,
+# Foldian) were relocated to Set 2 (U+E820..U+E99F) during the Set 1 to Set 2
+# migration; that interval is now fully allocated to SPUCE-supplied scripts
+# represented in RNUR Set 1 (see above).
 F5C0..F71F; Placeholder
 
 # --- RNUR Embassy Space in SPUCE (Shared Private Use Character Encoding) ---
@@ -196,8 +210,10 @@ FB000..FB12F; OPEN_SLOT
 FB1B0..FBFFF; OPEN_SLOT
 
 # --- Provisional RNUR Open Blocks (PROVISIONAL_RNUR_OPEN_SLOT) ---
-EE60..EE8F; PROVISIONAL_RNUR_OPEN_SLOT
-EFB0..EFFF; PROVISIONAL_RNUR_OPEN_SLOT
+# NOTE: U+EE60..U+EE8F and U+EFB0..U+EFFF were former ??? reservations here.
+# Under the permanent-space migration rule they were dissolved into permanent
+# space (no Set 2 destination); their addresses are now part of the SPUCE
+# Atlantean and Quốc âm tân tự allocations above.
 F720..F7FF; PROVISIONAL_RNUR_OPEN_SLOT
 F820..F87F; PROVISIONAL_RNUR_OPEN_SLOT
 100000..10FFEF; PROVISIONAL_RNUR_OPEN_SLOT
@@ -205,14 +221,13 @@ F1D00..F1EFF; PROVISIONAL_RNUR_OPEN_SLOT
 F26B0..F26FF; PROVISIONAL_RNUR_OPEN_SLOT
 F28E0..F28FF; PROVISIONAL_RNUR_OPEN_SLOT
 F2960..F29FF; PROVISIONAL_RNUR_OPEN_SLOT
-F3400..F4FFF; PROVISIONAL_RNUR_OPEN_SLOT
-F50F0..F7FFF; PROVISIONAL_RNUR_OPEN_SLOT
+F3400..F4DFF; PROVISIONAL_RNUR_OPEN_SLOT
+F5150..F7FFF; PROVISIONAL_RNUR_OPEN_SLOT
 F81B0..F8FFF; PROVISIONAL_RNUR_OPEN_SLOT
 FA000..FAFFF; PROVISIONAL_RNUR_OPEN_SLOT
 FC000..FDFFF; PROVISIONAL_RNUR_OPEN_SLOT
 FF200..FF27F; PROVISIONAL_RNUR_OPEN_SLOT
 FF2A0..FF2BF; PROVISIONAL_RNUR_OPEN_SLOT
-FF700..FF9FF; PROVISIONAL_RNUR_OPEN_SLOT
 FFE00..FFEFF; PROVISIONAL_RNUR_OPEN_SLOT
 
 # EOF
