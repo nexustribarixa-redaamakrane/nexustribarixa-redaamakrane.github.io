@@ -27,7 +27,7 @@ Because RNUR shares physical PUA space with upstream registries ((U)CSUR and SPU
 | Tier | Classification & Territory | Conflict Resolution & Eviction Mechanism |
 | :--- | :--- | :--- |
 | **Tier A** | Hardened Slots & Structural Gaps | 1:1 Parallel Addressing Mirror into Set 2 (e.g. Set 1 `U+100580` $\rightarrow$ Set 2 `U+100580`), `UPSTREAM_COLLISION` flag deployment, and runtime font layer overrides. |
-| **Tier B** | Provisional Territory (BMP `EE00–EFFF` & Plane 15 Gaps) | Dynamic database migration down to Set 2 base sandbox rows upon upstream collision, glyph metric refactoring, and Set 1 slot clearance. |
+| **Tier B** | Provisional Territory (BMP `F720–F7FF`, `F820–F87F` & Plane 15 Gaps) | Dynamic database migration down to Set 2 base sandbox rows upon upstream collision, glyph metric refactoring, and Set 1 slot clearance. Applied to BMP `EE00–EFFF`: the six RNUR scripts formerly leased there now live at Set 2 `E820–E99F`, and the dissolved `???` reservations were not recreated. |
 
 'njoy browsing this page!
 
@@ -57,16 +57,19 @@ A summary Roadmap to the Reddit Neographical Unicode Registry is available in th
 
 | Code Range | Script | Status | Creator | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| `EE00–EE0F` | Franklin Phonetic Alphabet | Registered | Benjamin Franklin | Provisional lease; also at SPUCE embassy range (`F9000–F900F`) |
-| `EE10–EE5F` | Loopiform | Registered | Filipe Dos Reis | Provisional lease; also at SPUCE embassy range (`F9010–F905F`) |
-| `EE60–EE8F` | Open Slot / Provisional | Reserved | — | Provisional RNUR defensive zoning macro-allocation |
-| `EE90–EEDF` | Sulat Hiligaynon | Registered | Julius Dalum | Also at SPUCE embassy range (`F9090–F90DF`) |
-| `EEE0–EF2F` | Western Script | Registered | Julius Dalum | Companion script for foreign names; SPUCE embassy (`F90E0–F912F`) |
-| `EF30–EF6F` | Zurjon | Registered | Nikita Varfalameev | Also at SPUCE embassy range (`F9130–F916F`) |
-| `EF70–EFAF` | Foldian | Registered | Nikita Varfalameev | Also at SPUCE embassy range (`F9170–F91AF`) |
-| `EFB0–EFFF` | Reserved | Reserved | — | Open BMP PUA Sector |
+| `EE00–EE2F` | Vulcan | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EE30–EE5F` | Gallifreyan | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EE60–EE8F` | Atlantean | SPUCE Allocation | SPUCE | Covers a former RNUR `???` reservation, dissolved into permanent space |
+| `EE90–EEBF` | Valyrian | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EEC0–EEEF` | Dovahzul | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EEF0–EF0F` | Utopian | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EF10–EF3F` | Global Alphabet | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EF40–EF6F` | Ditema | SPUCE Allocation | SPUCE | Part of the nine-script SPUCE allocation map covering `EE00–EFFF` |
+| `EF70–EFFF` | Quốc âm tân tự | SPUCE Allocation | SPUCE | Covers the former RNUR `???` reservation `EFB0–EFFF`, dissolved into permanent space |
 | `F5C0–F7FF` | Reserved | Reserved | — | Tier A BMP Gap / Defensive Zone |
 | `F820–F87F` | Reserved | Reserved | — | Tier A BMP Gap / Structural Reservation |
+
+The `EE00–EFFF` interval was previously held by six provisional RNUR scripts; under the **Set 1 → Set 2 migration** they were evicted and relocated to `E820–E99F` in Set 2 (see below), while the interval is now fully allocated to the nine-script SPUCE map. SPUCE supplies those allocation definitions; RNUR represents them in its own Set 1 layer, since SPUCE does not use RNUR's Set 1 / Set 2 architecture. The former `???` reservations at `EE60–EE8F` and `EFB0–EFFF` were dissolved into permanent space rather than migrated.
 
 ---
 
@@ -76,8 +79,8 @@ SPUCE tentatively maps Plane 15 out into thirteen zones. Two of them (`F9000–F
 
 | Code Range | Script | Status | Creator | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| `F9000–F9FFF` | Constructed Scripts for Existing Languages | RNUR Embassy | RNUR Consortium | Zone 6 — carved out of SPUCE zoning and reserved for RNUR; SPUCE-overseen. Mirrors BMP `EE00–EF2F`. |
-| `FB000–FBFFF` | Constructed Scripts for Constructed Languages | RNUR Embassy | RNUR Consortium | Zone 8 — carved out of SPUCE zoning and reserved for RNUR; SPUCE-overseen. Mirrors BMP `EF30–EFAF` (Zurjon, Foldian). |
+| `F9000–F9FFF` | Constructed Scripts for Existing Languages | RNUR Embassy | RNUR Consortium | Zone 6 — carved out of SPUCE zoning and reserved for RNUR; SPUCE-overseen. Holds the relocated RNUR scripts formerly leased at BMP `EE00–EF2F`. |
+| `FB000–FBFFF` | Constructed Scripts for Constructed Languages | RNUR Embassy | RNUR Consortium | Zone 8 — carved out of SPUCE zoning and reserved for RNUR; SPUCE-overseen. Holds the relocated RNUR scripts formerly leased at BMP `EF30–EFAF` (Zurjon, Foldian). |
 | `F4E00–F4FFF` | Halfwidth and Fullwidth Forms Extended-I | SPUCE-Listed | SPUCE | Zone 2 — SPUCE codepoints. |
 | `F50F0–F514F` | Enochian, Litterae Ignotae, Theban | SPUCE-Listed | SPUCE | Zone 3 (notation, ciphers, undeciphered & pseudohistorical scripts) — SPUCE codepoints. |
 | `FF700–FF9FF` | Control Pictures Extended-II | SPUCE-Listed | SPUCE | Zone 11 — SPUCE codepoints. Soon going to be encoded in Plane 16. |
@@ -100,7 +103,15 @@ SPUCE tentatively maps Plane 15 out into thirteen zones. Two of them (`F9000–F
 | Code Range | Script | Status | Creator | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | `E000–E81F` | Constantscript | Registered | u/Constant_Ad_5890 (_4olhos) & Discord Server | Issue initiated by u/Fyteria (Abytherus) |
-| `E820–F8FF` | Open Sandbox | Reserved | — | Parallel BMP Private Use Area sandbox layer |
+| `E820–E82F` | Benjamin Franklin's Phonetic Additions | Provisional Lease | Benjamin Franklin | Set 2 relocation of former Set 1 `EE00–EE0F` (16 code points); RNUR embassy space at SPUCE `F9000–F900F` |
+| `E830–E87F` | Loopiform | Provisional Lease | Filipe Dos Reis | Set 2 relocation of former Set 1 `EE10–EE5F` (80 code points); RNUR embassy space at SPUCE `F9010–F905F` |
+| `E880–E8CF` | Sulat Hiligaynon | Provisional Lease | Julius Dalum | Set 2 relocation of former Set 1 `EE90–EEDF` (80 code points); RNUR embassy space at SPUCE `F9090–F90DF` |
+| `E8D0–E91F` | Western Script | Provisional Lease | Julius Dalum | Set 2 relocation of former Set 1 `EEE0–EF2F` (80 code points); RNUR embassy space at SPUCE `F90E0–F912F` |
+| `E920–E95F` | Zurjon | Provisional Lease | u/Willing_Squirrel_741 | Set 2 relocation of former Set 1 `EF30–EF6F` (64 code points); RNUR embassy space at SPUCE `FB130–FB16F` |
+| `E960–E99F` | Foldian | Provisional Lease | u/Willing_Squirrel_741 | Set 2 relocation of former Set 1 `EF70–EFAF` (64 code points); RNUR embassy space at SPUCE `FB170–FB1AF` |
+| `E9A0–F8FF` | Open Sandbox | Reserved | — | Parallel BMP Private Use Area sandbox layer |
+
+The six named RNUR scripts at `E820–E99F` are Set 2 relocations of the former Set 1 allocations in `EE00–EFFF`, evicted when the SPUCE allocation map took over that interval. Inclusive sizes and relative order are preserved, and ConstantScript (`E000–E81F`) is unchanged. `E9A0–F8FF` remains open sandbox space.
 
 ---
 

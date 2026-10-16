@@ -19,6 +19,24 @@ py -m http.server 8080
 Open <http://localhost:8080>. The page loads Google Fonts externally, so those
 fonts require network access.
 
+### Troubleshooting: `code 400, message Bad request version`
+
+If the browser shows nothing and the server log repeats lines like
+`code 400, message Bad request version ('\x16\x03\x01...')`, the browser is
+speaking **HTTPS to this plain-HTTP server** — `http.server` cannot complete a
+TLS handshake, so it answers `400`. `py -m http.server` is not broken. The
+upgrade comes from the browser (HTTPS-First Mode / a cached HSTS entry):
+
+- Navigate to the explicit URL <http://localhost:8080>, including the `http://`
+  scheme, rather than a bare `localhost:8080`.
+- If it still upgrades, turn off **"Always use secure connections"**
+  (Chrome/Edge: *Privacy and security → Security*), and clear any cached HSTS
+  policy for `localhost` via `chrome://net-internals/#hsts` →
+  *Delete domain security policies*.
+- Firefox: set `dom.security.https_first` to `false` in `about:config`.
+- Sanity check without a browser: `curl.exe http://localhost:8080/rnur.html`
+  returns the page.
+
 ## GitHub Pages deployment and data sync
 
 `.github/workflows/static.yml` publishes the entire repository root to GitHub
