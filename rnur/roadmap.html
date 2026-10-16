@@ -443,18 +443,19 @@
               </tr>
               <tr>
                 <td align="center"><b>EExx</b></td>
-                <td colspan="1" align="center" class="c-rnur">Benjamin Franklin's Phonetic Additions (EE00–EE0F)</td>
-                <td colspan="5" align="center" class="c-rnur">Loopiform (EE10–EE5F)</td>
-                <td colspan="3" align="center">??? (EE60–EE8F)</td>
-                <td colspan="5" align="center" class="c-rnur">Sulat Hiligaynon (EE90–EEDF)</td>
-                <td colspan="2" align="center" class="c-rnur">Western Script (EEE0–EEFF)</td>
+                <td colspan="3" align="center" class="c-spuce">Vulcan (EE00–EE2F)</td>
+                <td colspan="3" align="center" class="c-spuce">Gallifreyan (EE30–EE5F)</td>
+                <td colspan="3" align="center" class="c-spuce">Atlantean (EE60–EE8F)</td>
+                <td colspan="3" align="center" class="c-spuce">Valyrian (EE90–EEBF)</td>
+                <td colspan="3" align="center" class="c-spuce">Dovahzul (EEC0–EEEF)</td>
+                <td colspan="1" align="center" class="c-spuce">Utopian (EEF0–EEFF)</td>
               </tr>
               <tr>
                 <td align="center"><b>EFxx</b></td>
-                <td colspan="3" align="center" class="c-rnur">Western Script (EF00–EF2F)</td>
-                <td colspan="4" align="center" class="c-rnur">Zurjon (EF30–EF6F)</td>
-                <td colspan="4" align="center" class="c-rnur">Foldian (EF70–EFAF)</td>
-                <td colspan="5" align="center">??? (EFB0–EFFF)</td>
+                <td colspan="1" align="center" class="c-spuce">Utopian (EF00–EF0F)</td>
+                <td colspan="3" align="center" class="c-spuce">Global Alphabet (EF10–EF3F)</td>
+                <td colspan="3" align="center" class="c-spuce">Ditema (EF40–EF6F)</td>
+                <td colspan="9" align="center" class="c-spuce">Quốc âm tân tự (EF70–EFFF)</td>
               </tr>
               <tr>
                 <td align="center"><b>F0xx</b></td>
@@ -502,6 +503,14 @@
               </tr>
             </tbody>
           </table>
+
+          <p class="rdmap-desc">The entire <code>U+EE00–U+EFFF</code> interval is now occupied by the nine-script
+            SPUCE allocation map, represented within RNUR Set 1 (SPUCE supplies the allocations; RNUR owns the sets).
+            The six former RNUR Set 1 scripts — Benjamin Franklin's Phonetic Additions, Loopiform, Sulat Hiligaynon,
+            Western Script, Zurjon, and Foldian — were evicted under the Set 1 &rarr; Set 2 migration and relocated to
+            contiguous ranges at <code>U+E820–U+E99F</code> in the Set 2 sandbox. The former <code>???</code>
+            reservations at <code>U+EE60–U+EE8F</code> and <code>U+EFB0–U+EFFF</code> were dissolved into permanent
+            space and are not carried over into Set 2.</p>
 
           <h3 class="rdmap-sub-label">Plane 15 (U+F0000–U+FFFFF)</h3>
           <p class="rdmap-desc">Plane 15 is tentatively mapped out by SPUCE into the thirteen zones below. Two of
@@ -2862,11 +2871,17 @@
               <tr>
                 <td align="center"><b>E8xx</b></td>
                 <td colspan="2" align="center" class="c-rnur">Constantscript (E800–E81F)</td>
-                <td colspan="14" align="center">(E820–E8FF)</td>
+                <td colspan="1" align="center" class="c-rnur">Benjamin Franklin's Phonetic Additions (E820–E82F)</td>
+                <td colspan="5" align="center" class="c-rnur">Loopiform (E830–E87F)</td>
+                <td colspan="5" align="center" class="c-rnur">Sulat Hiligaynon (E880–E8CF)</td>
+                <td colspan="3" align="center" class="c-rnur">Western Script (E8D0–E8FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>E9xx</b></td>
-                <td colspan="16" align="center">(E900–E9FF)</td>
+                <td colspan="2" align="center" class="c-rnur">Western Script (E900–E91F)</td>
+                <td colspan="4" align="center" class="c-rnur">Zurjon (E920–E95F)</td>
+                <td colspan="4" align="center" class="c-rnur">Foldian (E960–E99F)</td>
+                <td colspan="6" align="center">(E9A0–E9FF)</td>
               </tr>
               <tr>
                 <td align="center"><b>EAxx</b></td>
@@ -2930,6 +2945,11 @@
               </tr>
             </tbody>
           </table>
+
+          <p class="rdmap-desc">The six named RNUR scripts at <code>U+E820–U+E99F</code> are Set 2 relocations of the
+            former Set 1 allocations in <code>U+EE00–U+EFFF</code>, evicted when the SPUCE allocation map took over
+            that interval. Inclusive sizes and relative order are preserved, and ConstantScript
+            (<code>U+E000–U+E81F</code>) is unchanged. <code>U+E9A0–U+F8FF</code> remains open sandbox space.</p>
 
           <h3 class="rdmap-sub-label">Plane 15 (U+F0000–U+FFFFF)</h3>
           <table class="rdmap-table">
