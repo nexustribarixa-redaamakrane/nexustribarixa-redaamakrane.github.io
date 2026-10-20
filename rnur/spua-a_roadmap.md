@@ -1,0 +1,1177 @@
+# Set 1 Plane 15 Visual Roadmap Grid (Rows F00–FFF)
+
+This matrix maps out allocations visually across the 16-column boundaries of the Supplemental Private Use Area-A (Plane 15). Under the global registry architecture, **RNUR Set 1** governance encompasses all three valid Unicode PUA zones: the **BMP PUA** (`U+E000–U+F8FF`), **Plane 15** (`U+F0000–U+FFFFF`), and **Plane 16** (`U+100000–U+10FFFF`). This file explicitly charts the Plane 15 sector.
+
+* 🟪 = **Core CSUR / Shared Allocations** (Purple)
+* 🟩 = **UCSUR-Only Allocations** (Green)
+  * “UCSUR-Only” = allocated in UCSUR rather than CSUR; a range may also be named by SPUCE without leaving this class (see the reconciliation note below).
+* 🟥 = **SPUCE Project Allocations** (Red)
+  * 🟨 = **SPUCE Project Allocations (Reserved for SPUCE Admin and FontStruct user @erictom333)** (Yellow)
+* 🟧 = **RNUR Set 1 Allocations** (Orange)
+* `¿Script Name?` = **UCSUR-included script whose detailed proposal has not yet been written** → *a proposal-completeness marker; such scripts stay in the UCSUR-Only (🟩) class and are distinct from the `???` Provisional RNUR Open Slot below*
+* `???` = **Provisional RNUR Open Slot** (`PROVISIONAL_RNUR_OPEN_SLOT`) → *Provisional RNUR Set 1 Lease Territory: defensive `???` space held under RNUR stewardship pending upstream ratification*
+
+---
+
+## SPUCE Plane 15 Zone Map
+
+Plane 15 is provisionally zoned by SPUCE into the thirteen sectors below. Two of them (`F9000–F9FFF` and `FB000–FBFFF`) are carved out and reserved for RNUR as the embassy layer, and `FE000–FEFFF` is reserved for SPUCE admin and FontStruct user @erictom333. Wherever SPUCE has allocated a script, those code points are SPUCE's; whatever space is left empty inside a zone stays held by RNUR as a Tier B defensive zone (`???`). Scripts that remain UCSUR-listed keep their UCSUR colour instead of the zone colour.
+
+| Zone | Code Range | Scope | Steward |
+| :--- | :--- | :--- | :--- |
+| **1** | `F0000–F2AFF` | Large UCSUR scripts | 🟥 SPUCE |
+| **2** | `F2B00–F4FFF` | Extensions of existing Unicode scripts and existing real-world scripts | 🟥 SPUCE |
+| **3** | `F5000–F5FFF` | Notation, ciphers, undeciphered scripts, and pseudohistorical scripts | 🟥 SPUCE |
+| **4** | `F6000–F7FFF` | Constructed scripts from existing media | 🟥 SPUCE |
+| **5** | `F8000–F8FFF` | Constructed scripts for existing languages | 🟥 SPUCE |
+| **6** | `F9000–F9FFF` | Constructed scripts for existing languages | 🟧 Reserved for RNUR |
+| **7** | `FA000–FAFFF` | Constructed scripts for constructed languages | 🟥 SPUCE |
+| **8** | `FB000–FBFFF` | Constructed scripts for constructed languages | 🟧 Reserved for RNUR |
+| **9** | `FC000–FDFFF` | Constructed scripts by FontStruct users | 🟥 SPUCE |
+| **10** | `FE000–FEFFF` | Personal reservation | 🟨 Reserved for @erictom333 |
+| **11** | `FF000–FFEFF` | Symbols | 🟥 SPUCE |
+| **12** | `FFFC0–FFFEF` | Fragments | 🟥 SPUCE |
+| **13** | `FFFF0–FFFFF` | Specials | 🟥 SPUCE |
+
+> **Note (SPUCE Fragments reduction, 2026-10-19):** Zone 12's Fragments allocation was reduced to `FFFC0–FFFEF`. The released range `FFF00–FFFBF` is tracked by RNUR in Set 1 as a `PROVISIONAL_RNUR_OPEN_SLOT` (charted as `???` territory below) — it is neither a SPUCE allocation nor confirmed UCSUR space.
+
+> **Note (Plane 15 status reconciliation, 2026-10-19):** `¿Hacm?`, `¿Liparxe?`, `¿Shaleian?`, and `¿Visible Speech Extended-I?` are charted as UCSUR-only allocations (🟩). Their ranges originate in UCSUR — UCSUR reserves them, and “UCSUR-only” here means allocated in UCSUR rather than CSUR, not that SPUCE has never named the range. The SPUCE Plane 15 Roadmap names the same four ranges; that overlap is recorded as provenance (see `core/SPECIFICATION.md` §3.5.5), not as SPUCE ownership. Fairfax HD maps Hacm, Liparxe, and Shaleian completely and lists Visible Speech Extended as planned; that is observed font usage, not a UCSUR registration. `Zbalermorna` is a named UCSUR proposal and also stays UCSUR-only (🟩) without the marker. `¿Sitelen Pona Extended-A?`, `¿Sitelen Pona Extended-B?`, and `¿Quikscript?` are likewise UCSUR-included scripts whose detailed proposals have not yet been written. All seven carry the `¿...?` proposal-completeness marker and therefore stay in the UCSUR-Only (🟩) class rather than a separate "unconfirmed" class.
+
+---
+
+## Allocation Grid
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Row</th>
+      <th align="center" width="5.8%">0</th>
+      <th align="center" width="5.8%">1</th>
+      <th align="center" width="5.8%">2</th>
+      <th align="center" width="5.8%">3</th>
+      <th align="center" width="5.8%">4</th>
+      <th align="center" width="5.8%">5</th>
+      <th align="center" width="5.8%">6</th>
+      <th align="center" width="5.8%">7</th>
+      <th align="center" width="5.8%">8</th>
+      <th align="center" width="5.8%">9</th>
+      <th align="center" width="5.8%">A</th>
+      <th align="center" width="5.8%">B</th>
+      <th align="center" width="5.8%">C</th>
+      <th align="center" width="5.8%">D</th>
+      <th align="center" width="5.8%">E</th>
+      <th align="center" width="5.8%">F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><b>F00xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0000–F00FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F01xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0100–F01FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F02xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0200–F02FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F03xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0300–F03FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F04xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0400–F04FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F05xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0500–F05FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F06xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0600–F06FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F07xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0700–F07FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F08xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0800–F08FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F09xx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0900–F09FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F0Axx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0A00–F0AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F0Bxx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0B00–F0BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F0Cxx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0C00–F0CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F0Dxx</b></td>
+      <td colspan="16" align="center">🟪 Kinya Syllables (F0D00–F0DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F0Exx</b></td>
+      <td colspan="7" align="center">🟪 Kinya Syllables (F0E00–F0E6F)</td>
+      <td colspan="9" align="center">🟪 Pikto (F0E70–F0EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F0Fxx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F0F00–F0FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F10xx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F1000–F10FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F11xx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F1100–F11FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F12xx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F1200–F12FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F13xx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F1300–F13FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F14xx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F1400–F14FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F15xx</b></td>
+      <td colspan="16" align="center">🟪 Pikto (F1500–F15FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F16xx</b></td>
+      <td colspan="11" align="center">🟪 Pikto (F1600–F16AF)</td>
+      <td colspan="3" align="center">🟩 Derani (F16B0–F16DF)</td>
+      <td colspan="2" align="center">🟩 Braille Supplement (F16E0–F16FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F17xx</b></td>
+      <td colspan="16" align="center">🟩 Semtog (F1700–F17FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F18xx</b></td>
+      <td colspan="16" align="center">🟩 Semtog (F1800–F18FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F19xx</b></td>
+      <td colspan="16" align="center">🟩 Sitelen Pona (F1900–F19FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F1Axx</b></td>
+      <td colspan="16" align="center">🟩 ¿Sitelen Pona Extended-A? (F1A00–F1AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F1Bxx</b></td>
+      <td colspan="16" align="center">🟩 Shidinn (F1B00–F1BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F1Cxx</b></td>
+      <td colspan="4" align="center">🟩 Shidinn (F1C00–F1C3F)</td>
+      <td colspan="4" align="center">🟩 Titi Pula (F1C40–F1C7F)</td>
+      <td colspan="2" align="center">🟩 Sitelen Pona Radicals (F1C80–F1C9F)</td>
+      <td colspan="6" align="center">🟩 Yapiri (F1CA0–F1CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F1Dxx</b></td>
+      <td colspan="16" align="center">??? (F1D00–F1DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F1Exx</b></td>
+      <td colspan="16" align="center">??? (F1E00–F1EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F1Fxx</b></td>
+      <td colspan="16" align="center">🟩 ¿Sitelen Pona Extended-B? (F1F00–F1FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F20xx</b></td>
+      <td colspan="16" align="center">🟩 Sadalian (F2000–F20FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F21xx</b></td>
+      <td colspan="16" align="center">🟩 Sadalian (F2100–F21FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F22xx</b></td>
+      <td colspan="16" align="center">🟩 Sadalian (F2200–F22FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F23xx</b></td>
+      <td colspan="16" align="center">🟩 Sadalian (F2300–F23FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F24xx</b></td>
+      <td colspan="16" align="center">🟩 Sadalian (F2400–F24FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F25xx</b></td>
+      <td colspan="16" align="center">🟩 Sadalian (F2500–F25FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F26xx</b></td>
+      <td colspan="8" align="center">🟩 Sadalian (F2600–F267F)</td>
+      <td colspan="3" align="center">🟩 ¿Quikscript? (F2680–F26AF)</td>
+      <td colspan="5" align="center">??? (F26B0–F26FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F27xx</b></td>
+      <td colspan="16" align="center">🟩 ¿Hacm? (F2700–F27FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F28xx</b></td>
+      <td colspan="3" align="center">🟩 ¿Liparxe? (F2800–F282F)</td>
+      <td colspan="7" align="center">🟩 ¿Shaleian? (F2830–F289F)</td>
+      <td colspan="4" align="center">🟩 Zbalermorna (F28A0–F28DF)</td>
+      <td colspan="2" align="center">??? (F28E0–F28FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F29xx</b></td>
+      <td colspan="6" align="center">🟩 ¿Visible Speech Extended-I? (F2900–F295F)</td>
+      <td colspan="10" align="center">??? (F2960–F29FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F2Axx</b></td>
+      <td colspan="16" align="center">🟥 Phonetic Extensions-II (F2A00–F2AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F2Bxx</b></td>
+      <td colspan="16" align="center">🟥 Phonetic Extensions-II (F2B00–F2BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F2Cxx</b></td>
+      <td colspan="16" align="center">🟥 Phonetic Extensions-II (F2C00–F2CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F2Dxx</b></td>
+      <td colspan="16" align="center">🟥 Phonetic Extensions-II (F2D00–F2DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F2Exx</b></td>
+      <td colspan="16" align="center">🟥 Phonetic Extensions-II (F2E00–F2EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F2Fxx</b></td>
+      <td colspan="16" align="center">🟥 Phonetic Extensions-II (F2F00–F2FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F30xx</b></td>
+      <td colspan="16" align="center">🟥 Latin Extended-II (F3000–F30FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F31xx</b></td>
+      <td colspan="16" align="center">🟥 Latin Extended-II (F3100–F31FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F32xx</b></td>
+      <td colspan="16" align="center">🟥 Latin Extended-II (F3200–F32FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F33xx</b></td>
+      <td colspan="16" align="center">🟥 Latin Extended-II (F3300–F33FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F34xx</b></td>
+      <td colspan="16" align="center">??? (F3400–F34FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F35xx</b></td>
+      <td colspan="16" align="center">??? (F3500–F35FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F36xx</b></td>
+      <td colspan="16" align="center">??? (F3600–F36FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F37xx</b></td>
+      <td colspan="16" align="center">??? (F3700–F37FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F38xx</b></td>
+      <td colspan="16" align="center">??? (F3800–F38FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F39xx</b></td>
+      <td colspan="16" align="center">??? (F3900–F39FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F3Axx</b></td>
+      <td colspan="16" align="center">??? (F3A00–F3AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F3Bxx</b></td>
+      <td colspan="16" align="center">??? (F3B00–F3BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F3Cxx</b></td>
+      <td colspan="16" align="center">??? (F3C00–F3CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F3Dxx</b></td>
+      <td colspan="16" align="center">??? (F3D00–F3DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F3Exx</b></td>
+      <td colspan="16" align="center">??? (F3E00–F3EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F3Fxx</b></td>
+      <td colspan="16" align="center">??? (F3F00–F3FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F40xx</b></td>
+      <td colspan="16" align="center">??? (F4000–F40FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F41xx</b></td>
+      <td colspan="16" align="center">??? (F4100–F41FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F42xx</b></td>
+      <td colspan="16" align="center">??? (F4200–F42FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F43xx</b></td>
+      <td colspan="16" align="center">??? (F4300–F43FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F44xx</b></td>
+      <td colspan="16" align="center">??? (F4400–F44FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F45xx</b></td>
+      <td colspan="16" align="center">??? (F4500–F45FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F46xx</b></td>
+      <td colspan="16" align="center">??? (F4600–F46FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F47xx</b></td>
+      <td colspan="16" align="center">??? (F4700–F47FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F48xx</b></td>
+      <td colspan="16" align="center">??? (F4800–F48FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F49xx</b></td>
+      <td colspan="16" align="center">??? (F4900–F49FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F4Axx</b></td>
+      <td colspan="16" align="center">??? (F4A00–F4AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F4Bxx</b></td>
+      <td colspan="16" align="center">??? (F4B00–F4BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F4Cxx</b></td>
+      <td colspan="16" align="center">??? (F4C00–F4CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F4Dxx</b></td>
+      <td colspan="16" align="center">??? (F4D00–F4DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F4Exx</b></td>
+      <td colspan="16" align="center">🟥 Halfwidth and Fullwidth Forms Extended-I (F4E00–F4EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F4Fxx</b></td>
+      <td colspan="16" align="center">🟥 Halfwidth and Fullwidth Forms Extended-I (F4F00–F4FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F50xx</b></td>
+      <td colspan="3" align="center">🟥 Welsh Bardic (F5000–F502F)</td>
+      <td colspan="5" align="center">🟥 Mifo-Circassian (F5030–F507F)</td>
+      <td colspan="4" align="center">🟥 Formosan (F5080–F50BF)</td>
+      <td colspan="3" align="center">🟥 Pseudo-Kurdish (F50C0–F50EF)</td>
+      <td colspan="1" align="center">🟥 Enochian (F50F0–F50FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F51xx</b></td>
+      <td colspan="1" align="center">🟥 Enochian (F5100–F510F)</td>
+      <td colspan="2" align="center">🟥 Litterae Ignotae (F5110–F512F)</td>
+      <td colspan="2" align="center">🟥 Theban (F5130–F514F)</td>
+      <td colspan="11" align="center">??? (F5150–F51FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F52xx</b></td>
+      <td colspan="16" align="center">??? (F5200–F52FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F53xx</b></td>
+      <td colspan="16" align="center">??? (F5300–F53FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F54xx</b></td>
+      <td colspan="16" align="center">??? (F5400–F54FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F55xx</b></td>
+      <td colspan="16" align="center">??? (F5500–F55FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F56xx</b></td>
+      <td colspan="16" align="center">??? (F5600–F56FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F57xx</b></td>
+      <td colspan="16" align="center">??? (F5700–F57FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F58xx</b></td>
+      <td colspan="16" align="center">??? (F5800–F58FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F59xx</b></td>
+      <td colspan="16" align="center">??? (F5900–F59FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F5Axx</b></td>
+      <td colspan="16" align="center">??? (F5A00–F5AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F5Bxx</b></td>
+      <td colspan="16" align="center">??? (F5B00–F5BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F5Cxx</b></td>
+      <td colspan="16" align="center">??? (F5C00–F5CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F5Dxx</b></td>
+      <td colspan="16" align="center">??? (F5D00–F5DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F5Exx</b></td>
+      <td colspan="16" align="center">??? (F5E00–F5EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F5Fxx</b></td>
+      <td colspan="16" align="center">??? (F5F00–F5FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F60xx</b></td>
+      <td colspan="16" align="center">??? (F6000–F60FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F61xx</b></td>
+      <td colspan="16" align="center">??? (F6100–F61FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F62xx</b></td>
+      <td colspan="16" align="center">??? (F6200–F62FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F63xx</b></td>
+      <td colspan="16" align="center">??? (F6300–F63FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F64xx</b></td>
+      <td colspan="16" align="center">??? (F6400–F64FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F65xx</b></td>
+      <td colspan="16" align="center">??? (F6500–F65FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F66xx</b></td>
+      <td colspan="16" align="center">??? (F6600–F66FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F67xx</b></td>
+      <td colspan="16" align="center">??? (F6700–F67FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F68xx</b></td>
+      <td colspan="16" align="center">??? (F6800–F68FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F69xx</b></td>
+      <td colspan="16" align="center">??? (F6900–F69FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F6Axx</b></td>
+      <td colspan="16" align="center">??? (F6A00–F6AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F6Bxx</b></td>
+      <td colspan="16" align="center">??? (F6B00–F6BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F6Cxx</b></td>
+      <td colspan="16" align="center">??? (F6C00–F6CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F6Dxx</b></td>
+      <td colspan="16" align="center">??? (F6D00–F6DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F6Exx</b></td>
+      <td colspan="16" align="center">??? (F6E00–F6EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F6Fxx</b></td>
+      <td colspan="16" align="center">??? (F6F00–F6FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F70xx</b></td>
+      <td colspan="16" align="center">??? (F7000–F70FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F71xx</b></td>
+      <td colspan="16" align="center">??? (F7100–F71FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F72xx</b></td>
+      <td colspan="16" align="center">??? (F7200–F72FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F73xx</b></td>
+      <td colspan="16" align="center">??? (F7300–F73FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F74xx</b></td>
+      <td colspan="16" align="center">??? (F7400–F74FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F75xx</b></td>
+      <td colspan="16" align="center">??? (F7500–F75FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F76xx</b></td>
+      <td colspan="16" align="center">??? (F7600–F76FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F77xx</b></td>
+      <td colspan="16" align="center">??? (F7700–F77FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F78xx</b></td>
+      <td colspan="16" align="center">??? (F7800–F78FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F79xx</b></td>
+      <td colspan="16" align="center">??? (F7900–F79FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F7Axx</b></td>
+      <td colspan="16" align="center">??? (F7A00–F7AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F7Bxx</b></td>
+      <td colspan="16" align="center">??? (F7B00–F7BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F7Cxx</b></td>
+      <td colspan="16" align="center">??? (F7C00–F7CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F7Dxx</b></td>
+      <td colspan="16" align="center">??? (F7D00–F7DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F7Exx</b></td>
+      <td colspan="16" align="center">??? (F7E00–F7EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F7Fxx</b></td>
+      <td colspan="16" align="center">??? (F7F00–F7FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F80xx</b></td>
+      <td colspan="6" align="center">🟥 Gyorsrovas (F8000–F805F)</td>
+      <td colspan="5" align="center">🟥 Bostani (F8060–F80AF)</td>
+      <td colspan="5" align="center">🟥 New Mong (F80B0–F80FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F81xx</b></td>
+      <td colspan="4" align="center">🟥 New Akha (F8100–F813F)</td>
+      <td colspan="4" align="center">🟥 Akkhara Muni (F8140–F817F)</td>
+      <td colspan="3" align="center">🟥 New Maori (F8180–F81AF)</td>
+      <td colspan="5" align="center">??? (F81B0–F81FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F82xx</b></td>
+      <td colspan="16" align="center">??? (F8200–F82FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F83xx</b></td>
+      <td colspan="16" align="center">??? (F8300–F83FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F84xx</b></td>
+      <td colspan="16" align="center">??? (F8400–F84FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F85xx</b></td>
+      <td colspan="16" align="center">??? (F8500–F85FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F86xx</b></td>
+      <td colspan="16" align="center">??? (F8600–F86FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F87xx</b></td>
+      <td colspan="16" align="center">??? (F8700–F87FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F88xx</b></td>
+      <td colspan="16" align="center">??? (F8800–F88FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F89xx</b></td>
+      <td colspan="16" align="center">??? (F8900–F89FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F8Axx</b></td>
+      <td colspan="16" align="center">??? (F8A00–F8AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F8Bxx</b></td>
+      <td colspan="16" align="center">??? (F8B00–F8BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F8Cxx</b></td>
+      <td colspan="16" align="center">??? (F8C00–F8CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F8Dxx</b></td>
+      <td colspan="16" align="center">??? (F8D00–F8DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F8Exx</b></td>
+      <td colspan="16" align="center">??? (F8E00–F8EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F8Fxx</b></td>
+      <td colspan="16" align="center">??? (F8F00–F8FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F90xx</b></td>
+      <td colspan="1" align="center">🟧 Benjamin Franklin's Phonetic Additions (F9000–F900F)</td>
+      <td colspan="5" align="center">🟧 Loopiform (F9010–F905F)</td>
+      <td colspan="3" align="center">(F9060–F908F)</td>
+      <td colspan="5" align="center">🟧 Sulat Hiligaynon (F9090–F90DF)</td>
+      <td colspan="2" align="center">🟧 Western Script (F90E0–F90FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F91xx</b></td>
+      <td colspan="3" align="center">🟧 Western Script (F9100–F912F)</td>
+      <td colspan="13" align="center">(F9130–F91FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F92xx</b></td>
+      <td colspan="12" align="center">(F9200–F92BF)</td>
+      <td colspan="4" align="center">🟧 Placeholder (F92C0–F92FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F93xx</b></td>
+      <td colspan="16" align="center">🟧 Placeholder (F9300–F93FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F94xx</b></td>
+      <td colspan="2" align="center">🟧 Placeholder (F9400–F941F)</td>
+      <td colspan="14" align="center">(F9420–F94FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F95xx</b></td>
+      <td colspan="16" align="center">(F9500–F95FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F96xx</b></td>
+      <td colspan="16" align="center">(F9600–F96FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F97xx</b></td>
+      <td colspan="16" align="center">(F9700–F97FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F98xx</b></td>
+      <td colspan="16" align="center">(F9800–F98FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F99xx</b></td>
+      <td colspan="16" align="center">(F9900–F99FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F9Axx</b></td>
+      <td colspan="16" align="center">(F9A00–F9AFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F9Bxx</b></td>
+      <td colspan="16" align="center">(F9B00–F9BFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F9Cxx</b></td>
+      <td colspan="16" align="center">(F9C00–F9CFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F9Dxx</b></td>
+      <td colspan="16" align="center">(F9D00–F9DFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F9Exx</b></td>
+      <td colspan="16" align="center">(F9E00–F9EFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>F9Fxx</b></td>
+      <td colspan="16" align="center">(F9F00–F9FFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA0xx</b></td>
+      <td colspan="16" align="center">??? (FA000–FA0FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA1xx</b></td>
+      <td colspan="16" align="center">??? (FA100–FA1FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA2xx</b></td>
+      <td colspan="16" align="center">??? (FA200–FA2FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA3xx</b></td>
+      <td colspan="16" align="center">??? (FA300–FA3FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA4xx</b></td>
+      <td colspan="16" align="center">??? (FA400–FA4FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA5xx</b></td>
+      <td colspan="16" align="center">??? (FA500–FA5FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA6xx</b></td>
+      <td colspan="16" align="center">??? (FA600–FA6FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA7xx</b></td>
+      <td colspan="16" align="center">??? (FA700–FA7FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA8xx</b></td>
+      <td colspan="16" align="center">??? (FA800–FA8FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FA9xx</b></td>
+      <td colspan="16" align="center">??? (FA900–FA9FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FAAxx</b></td>
+      <td colspan="16" align="center">??? (FAA00–FAAFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FABxx</b></td>
+      <td colspan="16" align="center">??? (FAB00–FABFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FACxx</b></td>
+      <td colspan="16" align="center">??? (FAC00–FACFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FADxx</b></td>
+      <td colspan="16" align="center">??? (FAD00–FADFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FAExx</b></td>
+      <td colspan="16" align="center">??? (FAE00–FAEFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FAFxx</b></td>
+      <td colspan="16" align="center">??? (FAF00–FAFFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB0xx</b></td>
+      <td colspan="16" align="center">(FB000–FB0FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB1xx</b></td>
+      <td colspan="3" align="center">(FB100–FB12F)</td>
+      <td colspan="4" align="center">🟧 Zurjon (FB130–FB16F)</td>
+      <td colspan="4" align="center">🟧 Foldian (FB170–FB1AF)</td>
+      <td colspan="5" align="center">(FB1B0–FB1FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB2xx</b></td>
+      <td colspan="16" align="center">(FB200–FB2FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB3xx</b></td>
+      <td colspan="16" align="center">(FB300–FB3FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB4xx</b></td>
+      <td colspan="16" align="center">(FB400–FB4FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB5xx</b></td>
+      <td colspan="16" align="center">(FB500–FB5FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB6xx</b></td>
+      <td colspan="16" align="center">(FB600–FB6FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB7xx</b></td>
+      <td colspan="16" align="center">(FB700–FB7FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB8xx</b></td>
+      <td colspan="16" align="center">(FB800–FB8FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FB9xx</b></td>
+      <td colspan="16" align="center">(FB900–FB9FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FBAxx</b></td>
+      <td colspan="16" align="center">(FBA00–FBAFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FBBxx</b></td>
+      <td colspan="16" align="center">(FBB00–FBBFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FBCxx</b></td>
+      <td colspan="16" align="center">(FBC00–FBCFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FBDxx</b></td>
+      <td colspan="16" align="center">(FBD00–FBDFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FBExx</b></td>
+      <td colspan="16" align="center">(FBE00–FBEFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FBFxx</b></td>
+      <td colspan="16" align="center">(FBF00–FBFFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC0xx</b></td>
+      <td colspan="16" align="center">??? (FC000–FC0FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC1xx</b></td>
+      <td colspan="16" align="center">??? (FC100–FC1FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC2xx</b></td>
+      <td colspan="16" align="center">??? (FC200–FC2FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC3xx</b></td>
+      <td colspan="16" align="center">??? (FC300–FC3FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC4xx</b></td>
+      <td colspan="16" align="center">??? (FC400–FC4FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC5xx</b></td>
+      <td colspan="16" align="center">??? (FC500–FC5FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC6xx</b></td>
+      <td colspan="16" align="center">??? (FC600–FC6FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC7xx</b></td>
+      <td colspan="16" align="center">??? (FC700–FC7FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC8xx</b></td>
+      <td colspan="16" align="center">??? (FC800–FC8FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FC9xx</b></td>
+      <td colspan="16" align="center">??? (FC900–FC9FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FCAxx</b></td>
+      <td colspan="16" align="center">??? (FCA00–FCAFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FCBxx</b></td>
+      <td colspan="16" align="center">??? (FCB00–FCBFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FCCxx</b></td>
+      <td colspan="16" align="center">??? (FCC00–FCCFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FCDxx</b></td>
+      <td colspan="16" align="center">??? (FCD00–FCDFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FCExx</b></td>
+      <td colspan="16" align="center">??? (FCE00–FCEFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FCFxx</b></td>
+      <td colspan="16" align="center">??? (FCF00–FCFFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD0xx</b></td>
+      <td colspan="16" align="center">??? (FD000–FD0FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD1xx</b></td>
+      <td colspan="16" align="center">??? (FD100–FD1FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD2xx</b></td>
+      <td colspan="16" align="center">??? (FD200–FD2FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD3xx</b></td>
+      <td colspan="16" align="center">??? (FD300–FD3FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD4xx</b></td>
+      <td colspan="16" align="center">??? (FD400–FD4FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD5xx</b></td>
+      <td colspan="16" align="center">??? (FD500–FD5FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD6xx</b></td>
+      <td colspan="16" align="center">??? (FD600–FD6FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD7xx</b></td>
+      <td colspan="16" align="center">??? (FD700–FD7FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD8xx</b></td>
+      <td colspan="16" align="center">??? (FD800–FD8FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FD9xx</b></td>
+      <td colspan="16" align="center">??? (FD900–FD9FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FDAxx</b></td>
+      <td colspan="16" align="center">??? (FDA00–FDAFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FDBxx</b></td>
+      <td colspan="16" align="center">??? (FDB00–FDBFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FDCxx</b></td>
+      <td colspan="16" align="center">??? (FDC00–FDCFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FDDxx</b></td>
+      <td colspan="16" align="center">??? (FDD00–FDDFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FDExx</b></td>
+      <td colspan="16" align="center">??? (FDE00–FDEFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FDFxx</b></td>
+      <td colspan="16" align="center">??? (FDF00–FDFFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE0xx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FE000–FE0FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE1xx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FE100–FE1FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE2xx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FE200–FE2FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE3xx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FE300–FE3FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE4xx</b></td>
+      <td colspan="2" align="center">🟨 Minecraftian Supplement (FE400–FE41F)</td>
+      <td colspan="14" align="center">🟨 Minecraftian (FE420–FE4FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE5xx</b></td>
+      <td colspan="16" align="center">🟨 Minecraftian (FE500–FE5FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE6xx</b></td>
+      <td colspan="16" align="center">🟨 Minecraftian (FE600–FE6FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE7xx</b></td>
+      <td colspan="8" align="center">🟨 Hylian (FE700–FE77F)</td>
+      <td colspan="8" align="center">🟨 Layout Sandbox Space (FE780–FE7FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE8xx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FE800–FE8FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FE9xx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FE900–FE9FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FEAxx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FEA00–FEAFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FEBxx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FEB00–FEBFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FECxx</b></td>
+      <td colspan="16" align="center">🟨 Layout Sandbox Space (FEC00–FECFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FEDxx</b></td>
+      <td colspan="5" align="center">🟨 Tatar (FED00–FED4F)</td>
+      <td colspan="1" align="center">🟨 Tatar (FED50–FED5F)</td>
+      <td colspan="2" align="center">🟨 Interscript (FED60–FED7F)</td>
+      <td colspan="3" align="center">🟨 Script Gerudo (FED80–FEDAF)</td>
+      <td colspan="5" align="center">🟨 Script Gerudo Presentation Forms (FEDB0–FEDFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FEExx</b></td>
+      <td colspan="12" align="center">🟨 Mitrata Lipi (FEE00–FEEBF)</td>
+      <td colspan="4" align="center">🟨 Phonetic Featural (FEEC0–FEEFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FEFxx</b></td>
+      <td colspan="4" align="center">🟨 Featural Minecraftian (FEF00–FEF3F)</td>
+      <td colspan="5" align="center">🟨 African Transitional (FEF40–FEF8F)</td>
+      <td colspan="7" align="center">🟨 Layout Sandbox Space (FEF90–FEFFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF0xx</b></td>
+      <td colspan="6" align="center">🟥 Vexillology Symbols (FF000–FF05F)</td>
+      <td colspan="10" align="center">🟥 Miscellaneous Technical Extended-I (FF060–FF0FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF1xx</b></td>
+      <td colspan="7" align="center">🟥 Control Pictures Extended-I (FF100–FF16F)</td>
+      <td colspan="9" align="center">🟥 Segmented Display Patterns (FF170–FF1FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF2xx</b></td>
+      <td colspan="8" align="center">??? (FF200–FF27F)</td>
+      <td colspan="1" align="center">🟥 Dozenal Numerals (FF280–FF28F)</td>
+      <td colspan="1" align="center">🟥 Camp Dozenal Numerals (FF290–FF29F)</td>
+      <td colspan="2" align="center">??? (FF2A0–FF2BF)</td>
+      <td colspan="4" align="center">🟥 Marian Sexagesimal Numerals (FF2C0–FF2FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF3xx</b></td>
+      <td colspan="16" align="center">🟥 Block Elements Extended-I (FF300–FF3FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF4xx</b></td>
+      <td colspan="16" align="center">🟥 Box Drawing Extended-I (FF400–FF4FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF5xx</b></td>
+      <td colspan="12" align="center">🟥 Box Drawing Extended-I (FF500–FF5BF)</td>
+      <td colspan="4" align="center">🟥 Arrows Extended-I (FF5C0–FF5FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF6xx</b></td>
+      <td colspan="16" align="center">🟥 Hex Byte Pictures (FF600–FF6FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF7xx</b></td>
+      <td colspan="16" align="center">🟥 Control Pictures Extended-II — Soon Going to Be Encoded in Plane 16 (FF700–FF7FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF8xx</b></td>
+      <td colspan="16" align="center">🟥 Control Pictures Extended-II — Soon Going to Be Encoded in Plane 16 (FF800–FF8FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FF9xx</b></td>
+      <td colspan="16" align="center">🟥 Control Pictures Extended-II — Soon Going to Be Encoded in Plane 16 (FF900–FF9FF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FFAxx</b></td>
+      <td colspan="12" align="center">🟥 Astronomical Symbols (FFA00–FFABF)</td>
+      <td colspan="4" align="center">🟥 Chess Symbols Extended-I (FFAC0–FFAFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FFBxx</b></td>
+      <td colspan="16" align="center">🟥 Chess Symbols Extended-I (FFB00–FFBFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FFCxx</b></td>
+      <td colspan="3" align="center">🟥 Arrows Extended-II (FFC00–FFC2F)</td>
+      <td colspan="2" align="center">🟥 Rayalaka Color Symbols (FFC30–FFC4F)</td>
+      <td colspan="11" align="center">🟥 Symbols for Legacy Computing Extended-I (FFC50–FFCFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FFDxx</b></td>
+      <td colspan="16" align="center">🟥 Symbols for Legacy Computing Extended-I (FFD00–FFDFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FFExx</b></td>
+      <td colspan="16" align="center">??? (FFE00–FFEFF)</td>
+    </tr>
+    <tr>
+      <td align="center"><b>FFFxx</b></td>
+      <td colspan="12" align="center">??? (FFF00–FFFBF)</td>
+      <td colspan="3" align="center">🟥 Fragments (FFFC0–FFFEF)</td>
+      <td colspan="1" align="center">🟥 Plane 15 Specials (FFFF0–FFFFF)</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Architectural Appendix: Registry Real Estate & Mapping Logic
+
+### 1. The Global Spectrum: Permanent vs. Provisional Territory Across PUA Spaces
+
+To ensure predictable layout boundaries for secondary forks and peer registry coordination, all standard Unicode PUA sectors (BMP PUA, Plane 15, and Plane 16) are mapped under structural states of RNUR Set 1 stewardship:
+
+| Registry State | Visual Notation | Global Technical Implementation & Developer Impact |
+| :--- | :--- | :--- |
+| **Truly Unassigned** | *Empty / Unallocated Space* | **Permanent RNUR Set 1 Sandbox Territory.** This space is permanently explicitly preserved as open, neutral territory within the global Set 1 framework. Because no defensive fences are built or temporary scripts mapped here, it serves as a permanent sanctuary for external custom font forks or uncoordinated local scripts. |
+| **Reserved Space** | `???` | **Provisional RNUR Set 1 Lease Territory.** This space functions as a defensive block structurally locked down by RNUR Set 1 to prevent internal overlap while awaiting upstream specification. It remains an open encoding vacuum from a network perspective, operating under a provisional lease paradigm until official upstream authorities (**UCSUR** or **SPUCE**) declare a structural allocation within these ranges. |
+
+### 2. Micro-Level Breakdown: Why the `???` Range is "Provisional RNUR / Unencoded (U)CSUR/SPUCE"
+
+The fragmented and extended ranges spanning **`F1D00–F1EFF`**, **`F26B0–F26FF`**, **`F28E0–F28FF`**, **`F2960–F29FF`**, **`F3400–F4DFF`**, **`F5150–F7FFF`**, **`F81B0–F8FFF`**, **`FA000–FAFFF`**, **`FC000–FDFFF`**, **`FF200–FF27F`**, **`FF2A0–FF2BF`**, **`FFE00–FFEFF`**, and **`FFF00–FFFBF`** are classified collectively under the `???` territory due to three core structural boundaries:
+
+* **Provisional RNUR Ownership:** This real estate functions explicitly as **RNUR Set 1 space for now**. It is actively tracked and defended by the registry to anchor incoming community scripts, operating under a temporary lease paradigm.
+* **Upstream Vacuum:** While under RNUR stewardship, this space remains an open layout vacuum from the perspective of peer networks. It lacks an abstract character repertoire or formal upstream tracking, remaining designated as available real estate until **UCSUR** or **SPUCE** steps forward to claim an allocation within its boundaries.
+* **Allocation vs. Encoding Boundaries:** Macro-allocation handles defensive zoning (securing real estate borders on the layout grid). Micro-encoding handles the internal asset engineering (character logic inside those borders). The `???` marker denotes a completed macro-allocation that is waiting for an upcoming script specification to undergo character translation.
+* **SPUCE Encoded vs. RNUR Vacancy:** Only the space SPUCE leaves unallocated inside its zones stays `???` territory. As soon as SPUCE allocates a script, those code points leave the RNUR provisional list and become SPUCE allocations — for example `FF700–FF9FF` (Control Pictures Extended-II, soon going to be encoded in Plane 16), `F50F0–F514F` (Enochian, Litterae Ignotae, and Theban), and `F92C0–F941F` (Placeholder). Conversely, when SPUCE reduces an allocation, the released range returns to RNUR as `???` territory — the 2026-10-19 Fragments reduction returned `FFF00–FFFBF`, while the remaining SPUCE Fragments allocation stays `FFFC0–FFFEF`. By contrast, the sectors SPUCE reserved for RNUR (`F9000–F9FFF`, `FB000–FBFFF`) are Tier A embassy slots and are never `???` territory.
+
+### 3. Upstream Collision & Set 2 Eviction Protocol
+
+Because the `???` territory is provisionally staked inside an unmapped zone of the upstream architecture, the following conflict-resolution hierarchy applies to all scripts assigned here by RNUR before official ratification:
+
+* **Upstream Authority:** UCSUR and SPUCE reserve absolute historical priority over PUA layout structures.
+* **The Eviction Clause:** If an active script project is provisionally assigned to a specific block within the `???` territory by RNUR, and UCSUR or SPUCE subsequently ratifies/encodes a different, conflicting script into those exact code points, the RNUR script will undergo an automatic **Set 2 Eviction**.
+* **Set 2 Relocation Routing:** To preserve complete upstream alignment and prevent dirty runtime clashing or font rendering script pollution, the overridden internal script will be cleanly compiled out of Set 1 and reassigned to **RNUR Set 2** (Plane 16 or designated fallback overflow tables).

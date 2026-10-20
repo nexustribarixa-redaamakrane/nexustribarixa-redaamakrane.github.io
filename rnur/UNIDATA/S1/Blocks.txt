@@ -1,5 +1,5 @@
 # Blocks-RNUR.txt
-# Date: 2026-10-16, 12:00:00
+# Date: 2026-10-19, 12:00:00
 #
 # Reddit Neographical Unicode Registry Character Database
 # Maintained by Registry Architecture / Nexus Tribarixa
@@ -58,6 +58,17 @@ F0000..F0E6F; Kinya Syllables
 F0E70..F16AF; Pikto
 
 # --- UCSUR-Only Allocations (🟩) ---
+# "UCSUR-Only" means allocated in UCSUR rather than CSUR; a range may also
+# be named by SPUCE without leaving the UCSUR classification. Hacm,
+# Liparxe, Shaleian, and Visible Speech Extended-I originate in UCSUR
+# (reserved ranges) and the SPUCE Plane 15 Roadmap names the same ranges:
+# that overlap is provenance, not SPUCE ownership. See
+# core/SPECIFICATION.md §3.5.5.
+# A name written as ¿Script Name? denotes a UCSUR-included script whose
+# detailed proposal has not yet been written. It is a proposal-completeness
+# marker, not an "unconfirmed by UCSUR" status; such scripts stay in this
+# UCSUR-Only (🟩) class. It is unrelated to the ??? Provisional RNUR Open
+# Slot (PROVISIONAL_RNUR_OPEN_SLOT).
 E650..E67F; Sylabica
 E6D0..E6EF; Amlin
 E6F0..E73F; Unifon Extended
@@ -89,21 +100,19 @@ F16B0..F16DF; Derani
 F16E0..F16FF; Braille Supplement
 F1700..F18FF; Semtog
 F1900..F19FF; Sitelen Pona
+F1A00..F1AFF; ¿Sitelen Pona Extended-A?
 F1B00..F1C3F; Shidinn
 F1C40..F1C7F; Titi Pula
 F1C80..F1C9F; Sitelen Pona Radicals
 F1CA0..F1CFF; Yapiri
-F2000..F267F; Sadalian
-F28A0..F28DF; Zbalermorna
-
-# --- Unconfirmed by UCSUR (⬛) ---
-F1A00..F1AFF; ¿Sitelen Pona Extended-A?
 F1F00..F1FFF; ¿Sitelen Pona Extended-B?
+F2000..F267F; Sadalian
 F2680..F26AF; ¿Quikscript?
 F2700..F27FF; ¿Hacm?
 F2800..F282F; ¿Liparxe?
 F2830..F289F; ¿Shaleian?
-F2900..F295F; ¿Visible Speech Extended?
+F28A0..F28DF; Zbalermorna
+F2900..F295F; ¿Visible Speech Extended-I?
 
 # --- SPUCE Project Allocations (🟥) ---
 EE00..EE2F; Vulcan
@@ -124,6 +133,7 @@ F400..F4BF; Symbols and Punctuation Extended-I
 F4F0..F5BF; Number Forms Extended-I
 F800..F81F; Corporate Symbols
 F880..F89F; Font Specifics
+
 F2A00..F2FFF; Phonetic Extensions-II
 F3000..F33FF; Latin Extended-II
 F4E00..F4FFF; Halfwidth and Fullwidth Forms Extended-I
@@ -158,7 +168,7 @@ FFAC0..FFBFF; Chess Symbols Extended-I
 FFC00..FFC2F; Arrows Extended-II
 FFC30..FFC4F; Rayalaka Color Symbols
 FFC50..FFDFF; Symbols for Legacy Computing Extended-I
-FFF00..FFFEF; Fragments
+FFFC0..FFFEF; Fragments
 FFFF0..FFFFF; Plane 15 Specials
 10FFF0..10FFFF; Plane 16 Specials
 
@@ -167,9 +177,7 @@ FE000..FE3FF; Layout Sandbox Space (erictom333 Reserved)
 FE400..FE41F; Minecraftian Supplement
 FE420..FE6FF; Minecraftian
 FE700..FE77F; Hylian
-FE780..FE79F; Gerudo
-FE7A0..FE7DF; Gerudo Presentation Forms
-FE7E0..FE7FF; L8
+FE780..FE7FF; Layout Sandbox Space (erictom333 Reserved)
 FE800..FECFF; Layout Sandbox Space (erictom333 Reserved)
 FED00..FED5F; Tatar
 FED60..FED7F; Interscript (erictom333 Reserved)
@@ -214,6 +222,8 @@ FB1B0..FBFFF; OPEN_SLOT
 # Under the permanent-space migration rule they were dissolved into permanent
 # space (no Set 2 destination); their addresses are now part of the SPUCE
 # Atlantean and Quốc âm tân tự allocations above.
+# NOTE: U+FFF00..U+FFFBF was released by the SPUCE Fragments reduction of
+# 2026-10-19; the remaining SPUCE Fragments allocation is U+FFFC0..U+FFFEF.
 F720..F7FF; PROVISIONAL_RNUR_OPEN_SLOT
 F820..F87F; PROVISIONAL_RNUR_OPEN_SLOT
 100000..10FFEF; PROVISIONAL_RNUR_OPEN_SLOT
@@ -229,5 +239,6 @@ FC000..FDFFF; PROVISIONAL_RNUR_OPEN_SLOT
 FF200..FF27F; PROVISIONAL_RNUR_OPEN_SLOT
 FF2A0..FF2BF; PROVISIONAL_RNUR_OPEN_SLOT
 FFE00..FFEFF; PROVISIONAL_RNUR_OPEN_SLOT
+FFF00..FFFBF; PROVISIONAL_RNUR_OPEN_SLOT
 
 # EOF
